@@ -4,41 +4,35 @@ const showcaseTabs = [
   {
     id: "dashboard",
     title: "Dashboard Overview",
-    tagline: "Real-time overview of active school records, S.Y. 2026-2027 KPIs, student metrics, and required setup.",
+    tagline: "Overview of student records, basic information statistics, and digitized historical documents from 2021 onwards.",
     image: "/screenshots/dashboard.webp",
-    badge: "S.Y. 2026-2027 Active",
+    badge: "Archives (2021+)",
   },
   {
     id: "students",
-    title: "Students Directory",
-    tagline: "Search learners by LRN, manage section assignments (e.g. Grade 7 - Susan), and monitor 3/6 document completion.",
+    title: "Student Directory",
+    tagline: "Search learners by 12-digit LRN, view basic profile information, and register student data via SF-10 and SF-9 forms.",
     image: "/screenshots/students.webp",
-    badge: "LRN & 4Ps Tracker",
+    badge: "Basic Info Directory",
   },
   {
     id: "documents",
     title: "Document Vault & Folders",
-    tagline: "Organize student folders with JHS/SHS checklists, upload transcripts, and inspect documents with instant PDF preview.",
+    tagline: "Organize archived student folders (2021 onwards), view historical documents, and inspect records with instant PDF preview.",
     image: "/screenshots/documents.webp",
-    badge: "OCR Document Ingestion",
+    badge: "Document Archival",
   },
   {
     id: "reports",
-    title: "DepEd Transparency Board",
-    tagline: "DepEd Transparency & School Performance Board tracking enrollment trends, dropouts, and official PDF exports.",
+    title: "Archive Statistics Board",
+    tagline: "Historical student records overview tracking 4Ps learner markers and audit-ready document summaries.",
     image: "/screenshots/reports.webp",
-    badge: "DepEd Compliance",
+    badge: "Records Summary",
   },
 ];
 ---
 
 <section id="showcase" class="relative bg-[#09110c] py-24 text-white overflow-hidden border-t border-[#1f3627]">
-  <!-- Glowing Background Gradients -->
-  <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-    <div class="absolute left-1/4 top-10 h-[500px] w-[500px] rounded-full bg-[#16a34a]/15 blur-[120px]"></div>
-    <div class="absolute right-1/4 bottom-10 h-[400px] w-[400px] rounded-full bg-[#f59e0b]/10 blur-[100px]"></div>
-  </div>
-
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     
     <!-- Section Title Header -->
@@ -48,10 +42,10 @@ const showcaseTabs = [
         <span>Live System Interface</span>
       </div>
       <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
-        Designed for Talisay Integrated School Teachers.
+        Designed for Talisay Integrated School.
       </h2>
       <p class="mt-4 text-base text-slate-300 sm:text-lg">
-        Actual interface screenshots from the Flutter desktop client built specifically to make school record management and DepEd compliance effortless.
+        Actual interface screenshots from the desktop client built specifically to manage and register student records from old documents dated 2021 onwards.
       </p>
     </div>
 
@@ -63,12 +57,12 @@ const showcaseTabs = [
           data-tab={tab.id}
           class={`tab-btn relative flex items-center gap-2.5 rounded-xl px-4 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 border ${
             idx === 0
-              ? "bg-[#16a34a] text-white border-[#16a34a] shadow-lg shadow-[#16a34a]/30"
+              ? "bg-[#16a34a] text-white border-[#16a34a] shadow-md shadow-[#16a34a]/20"
               : "bg-[#112017] text-slate-300 border-[#23412f] hover:bg-[#162a1d] hover:text-white"
           }`}
         >
           <span>{tab.title}</span>
-          <span class="rounded-md bg-black/30 px-2 py-0.5 text-[10px] uppercase font-bold text-emerald-300">
+          <span class="rounded bg-black/30 px-2 py-0.5 text-[10px] uppercase font-bold text-emerald-300">
             {tab.badge}
           </span>
         </button>
@@ -88,9 +82,6 @@ const showcaseTabs = [
         </div>
 
         <div class="flex items-center gap-2 rounded-lg bg-black/25 px-3 py-1 text-xs font-mono text-emerald-100">
-          <svg class="h-3.5 w-3.5 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-          </svg>
           <span id="tab-url">tis_rms://app/dashboard</span>
         </div>
 
@@ -109,8 +100,7 @@ const showcaseTabs = [
             id={`tab-content-${tab.id}`}
             class={`tab-content transition-all duration-300 ${idx === 0 ? "block" : "hidden"}`}
           >
-            <!-- Image with sleek border & shadow -->
-            <div class="group relative overflow-hidden rounded-xl border border-[#23412f] bg-[#0c1610] shadow-xl">
+            <div class="group relative overflow-hidden rounded-xl border border-[#23412f] bg-[#0c1610]">
               <img
                 src={tab.image}
                 alt={`TIS_RMS ${tab.title} - Talisay Integrated School`}
@@ -126,11 +116,8 @@ const showcaseTabs = [
                     <p class="text-xs sm:text-sm text-slate-300 max-w-2xl mt-0.5">{tab.tagline}</p>
                   </div>
                   <div class="shrink-0">
-                    <span class="inline-flex items-center gap-1.5 rounded-lg bg-[#16a34a] px-3 py-1.5 text-xs font-semibold text-white shadow-md">
-                      <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      Verified Module
+                    <span class="rounded-md border border-[#1f3627] bg-[#112017] px-3 py-1 text-xs font-mono text-[#4ade80]">
+                      System View
                     </span>
                   </div>
                 </div>

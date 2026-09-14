@@ -1,29 +1,33 @@
 ---
-// SchoolForms component - DepEd SF-10 Automation for Talisay Integrated School
+// SchoolForms component - DepEd SF-10 & SF-9 Integration for Talisay Integrated School
 const schoolFormFeatures = [
   {
+    num: "01",
     title: "DepEd SF-10 JHS Template",
     filename: "School-Form-10-JHS.xlsx",
-    desc: "Pre-configured Excel template for Junior High School learner records, subject grades, general averages, and promotion status.",
-    badge: "JHS Approved",
+    desc: "Official Excel template for Junior High School basic learner profiles, LRN identification, and historical school origin (2021 onwards).",
+    badge: "JHS Template",
   },
   {
+    num: "02",
     title: "DepEd SF-10 SHS Template (v2026)",
     filename: "SSHS-SF-10-v2026_corrected.xlsx",
-    desc: "Official Senior High School template supporting academic tracks, strands, semester subjects, unit credits, and TVL specializations.",
-    badge: "SHS v2026 Corrected",
+    desc: "Official Senior High School template for student basic biographical info, track classification, and historical records.",
+    badge: "SHS v2026 Ready",
   },
   {
+    num: "03",
     title: "ExcelJS Automated Population",
     filename: "Backend Excel Engine",
-    desc: "Populates cell formatting, formulas, borders, and student metadata programmatically without requiring Microsoft Office installed on the server.",
-    badge: "ExcelJS Driven",
+    desc: "Populates official DepEd cell headers, borders, and student metadata programmatically without requiring Microsoft Office on the server.",
+    badge: "ExcelJS Engine",
   },
   {
-    title: "Batch Export & Instant Print",
-    filename: "PDF & XLSX Out",
-    desc: "Generate form suites for entire sections or graduating batches in seconds with built-in Flutter PDF preview and direct printing support.",
-    badge: "Batch Generation",
+    num: "04",
+    title: "SF-10 & SF-9 Efficient Registration",
+    filename: "Basic Info Ingestion",
+    desc: "The fastest method to capture basic student info into the local database from old documents (2021 onwards). Not enrollment, basic registration only.",
+    badge: "Efficient Method",
   },
 ];
 ---
@@ -37,52 +41,50 @@ const schoolFormFeatures = [
       <div class="lg:col-span-6">
         <div class="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 text-xs font-semibold text-amber-400">
           <img src="/tis_logo.png" alt="TIS" class="h-3.5 w-3.5 object-contain" />
-          <span>DepEd Official Compliance</span>
+          <span>Historical Records Management (2021+)</span>
         </div>
 
         <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl leading-tight">
-          Automated DepEd School Form 10 (SF-10) Generation.
+          Basic Student Registration via SF-10 & SF-9.
         </h2>
 
         <p class="mt-4 text-base text-slate-300 sm:text-lg leading-relaxed">
-          TIS RMS bridges student database records directly with official Philippine Department of Education Excel forms. Export fully populated <strong>SF-10 JHS</strong> and <strong>SF-10 SHS</strong> permanent records with mathematical formulas and promotional remarks intact.
+          TIS RMS utilizes <strong>SF-10 and SF-9 documents</strong> as the most efficient method to add and catalog student basic information from old documents dated <strong>2021 onwards</strong>. Please note: this is <strong>not an enrollment system</strong>, but a streamlined system for basic registration of basic information with zero grade tracking.
         </p>
 
-        <!-- Feature List Cards -->
-        <div class="mt-8 space-y-4">
+        <!-- Feature List Cards - Minimalist Numbered Design -->
+        <div class="mt-8 space-y-3.5">
           {schoolFormFeatures.map((item) => (
             <div class="flex items-start gap-4 rounded-xl border border-[#233e2e] bg-[#112017]/80 p-4 transition hover:border-[#16a34a] hover:bg-[#15271d]">
-              <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#16a34a]/15 text-[#4ade80] font-bold border border-[#16a34a]/30">
-                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
+              <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#16a34a]/20 text-[#4ade80] font-mono text-xs font-bold border border-[#16a34a]/30">
+                {item.num}
               </div>
 
               <div>
                 <div class="flex items-center gap-2">
                   <h3 class="font-display text-sm font-bold text-white">{item.title}</h3>
-                  <span class="rounded-md bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 text-[10px] font-bold text-amber-300">
+                  <span class="rounded bg-black/30 border border-[#23412f] px-2 py-0.5 text-[10px] font-mono text-amber-300">
                     {item.badge}
                   </span>
                 </div>
                 <div class="text-[11px] font-mono text-emerald-400 mt-0.5">{item.filename}</div>
-                <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">{item.desc}</p>
+                <p class="mt-1 text-xs text-slate-300 leading-relaxed">{item.desc}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      <!-- Right Column: Interactive Card Preview of SF-10 Sheet Structure -->
+      <!-- Right Column: Card Preview of Basic Info Ingestion Structure (No Grades) -->
       <div class="lg:col-span-6">
         <div class="overflow-hidden rounded-2xl border border-[#23412f] bg-[#0c1610] text-white shadow-2xl">
           
-          <!-- Mock Excel Window Header with Authentic Green Bar -->
+          <!-- Mock Window Header -->
           <div class="flex items-center justify-between border-b border-[#1f3627] bg-[#15803d] px-4 py-2.5">
             <div class="flex items-center gap-2">
-              <span class="h-3 w-3 rounded-full bg-rose-500"></span>
-              <span class="h-3 w-3 rounded-full bg-amber-500"></span>
-              <span class="h-3 w-3 rounded-full bg-emerald-300"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-white/40"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-white/40"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-white/40"></span>
             </div>
             <div class="text-xs font-mono text-white font-semibold">
               SSHS-SF-10-v2026_corrected.xlsx
@@ -98,7 +100,7 @@ const schoolFormFeatures = [
             <!-- Learner Information Block -->
             <div class="rounded-xl border border-[#23412f] bg-[#112017] p-4">
               <div class="text-xs font-mono font-bold uppercase tracking-wider text-[#4ade80]">
-                1. Learner Information Section
+                1. Learner Basic Information Section
               </div>
               <div class="mt-3 grid grid-cols-2 gap-2.5 text-xs">
                 <div class="rounded-lg bg-[#09110c] p-2.5 border border-[#1f3627]">
@@ -110,23 +112,23 @@ const schoolFormFeatures = [
                   <div class="font-bold text-white mt-0.5">GARCIA, CRIS CHARLES</div>
                 </div>
                 <div class="rounded-lg bg-[#09110c] p-2.5 border border-[#1f3627]">
-                  <div class="text-[10px] text-slate-400">Track & Strand / Section</div>
-                  <div class="font-bold text-amber-400 mt-0.5">Grade 7 - Susan</div>
+                  <div class="text-[10px] text-slate-400">Historical Year Level</div>
+                  <div class="font-bold text-amber-400 mt-0.5">Grade 7</div>
                 </div>
                 <div class="rounded-lg bg-[#09110c] p-2.5 border border-[#1f3627]">
-                  <div class="text-[10px] text-slate-400">School Name & Location</div>
+                  <div class="text-[10px] text-slate-400">School Origin & Location</div>
                   <div class="font-bold text-white mt-0.5">Talisay Integrated School (Tiaong)</div>
                 </div>
               </div>
             </div>
 
-            <!-- Scholastic Record Block -->
+            <!-- Historical Document Ingestion Block (No Grades) -->
             <div class="rounded-xl border border-[#23412f] bg-[#112017] p-4">
               <div class="flex items-center justify-between">
                 <div class="text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
-                  2. Scholastic Record & Ratings
+                  2. Archived Document Register (2021+)
                 </div>
-                <span class="text-[11px] font-mono text-emerald-400">Junior High School Form 10</span>
+                <span class="text-[11px] font-mono text-emerald-400">SF-10 & SF-9 Records</span>
               </div>
 
               <!-- Mini Table -->
@@ -134,34 +136,31 @@ const schoolFormFeatures = [
                 <table class="w-full text-left text-xs font-mono">
                   <thead>
                     <tr class="border-b border-[#1f3627] text-slate-400 text-[10px]">
-                      <th class="pb-1.5 font-semibold">Subject Title</th>
-                      <th class="pb-1.5 font-semibold text-center">Q1</th>
-                      <th class="pb-1.5 font-semibold text-center">Q2</th>
-                      <th class="pb-1.5 font-semibold text-center">Final</th>
-                      <th class="pb-1.5 font-semibold text-right">Remarks</th>
+                      <th class="pb-1.5 font-semibold">Registered Data Field</th>
+                      <th class="pb-1.5 font-semibold">Extracted Value</th>
+                      <th class="pb-1.5 font-semibold text-right">Source Document</th>
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-[#1f3627]/60 text-slate-300">
                     <tr>
-                      <td class="py-1.5 font-semibold text-white">General Mathematics</td>
-                      <td class="text-center">92</td>
-                      <td class="text-center">94</td>
-                      <td class="text-center font-bold text-emerald-400">93</td>
-                      <td class="text-right text-[#4ade80] font-bold">PASSED</td>
+                      <td class="py-1.5 font-semibold text-white">Learner Reference Number</td>
+                      <td class="font-bold text-emerald-400">108297100170</td>
+                      <td class="text-right text-[#4ade80]">SF-10 Archive</td>
                     </tr>
                     <tr>
-                      <td class="py-1.5 font-semibold text-white">Earth and Life Science</td>
-                      <td class="text-center">88</td>
-                      <td class="text-center">90</td>
-                      <td class="text-center font-bold text-emerald-400">89</td>
-                      <td class="text-right text-[#4ade80] font-bold">PASSED</td>
+                      <td class="py-1.5 font-semibold text-white">Date of Birth & Sex</td>
+                      <td>2009-04-14 / Male</td>
+                      <td class="text-right text-[#4ade80]">SF-10 Archive</td>
                     </tr>
                     <tr>
-                      <td class="py-1.5 font-semibold text-white">Oral Communication</td>
-                      <td class="text-center">95</td>
-                      <td class="text-center">96</td>
-                      <td class="text-center font-bold text-emerald-400">96</td>
-                      <td class="text-right text-[#4ade80] font-bold">PASSED</td>
+                      <td class="py-1.5 font-semibold text-white">Originating School</td>
+                      <td>Talisay Elementary School</td>
+                      <td class="text-right text-[#4ade80]">SF-9 Archive</td>
+                    </tr>
+                    <tr>
+                      <td class="py-1.5 font-semibold text-white">Document Scope</td>
+                      <td>Archived File (2021 Onwards)</td>
+                      <td class="text-right text-amber-400">Cataloged</td>
                     </tr>
                   </tbody>
                 </table>
@@ -169,14 +168,13 @@ const schoolFormFeatures = [
             </div>
 
             <!-- Output Action Callout -->
-            <div class="flex items-center justify-between rounded-xl bg-[#16a34a]/20 border border-[#16a34a]/40 p-3.5 text-xs text-white">
-              <div class="flex items-center gap-2">
-                <svg class="h-4 w-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Automated Formula Calculation (General Average: <strong class="text-emerald-300">92.67</strong>)</span>
+            <div class="flex items-center justify-between rounded-xl bg-[#112017] border border-[#23412f] p-3 text-xs text-white">
+              <div class="text-slate-300">
+                Scope: <strong class="text-emerald-400">Basic Registration Only</strong> (No Grade Tracking)
               </div>
-              <span class="rounded bg-[#16a34a] px-2.5 py-1 font-mono font-bold text-white shadow">Export XLSX</span>
+              <span class="rounded bg-[#16a34a] px-2.5 py-1 font-mono text-xs font-semibold text-white">
+                Export Record (.xlsx)
+              </span>
             </div>
 
           </div>
