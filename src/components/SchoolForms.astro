@@ -1,0 +1,190 @@
+---
+// SchoolForms component - DepEd SF-10 Automation for Talisay Integrated School
+const schoolFormFeatures = [
+  {
+    title: "DepEd SF-10 JHS Template",
+    filename: "School-Form-10-JHS.xlsx",
+    desc: "Pre-configured Excel template for Junior High School learner records, subject grades, general averages, and promotion status.",
+    badge: "JHS Approved",
+  },
+  {
+    title: "DepEd SF-10 SHS Template (v2026)",
+    filename: "SSHS-SF-10-v2026_corrected.xlsx",
+    desc: "Official Senior High School template supporting academic tracks, strands, semester subjects, unit credits, and TVL specializations.",
+    badge: "SHS v2026 Corrected",
+  },
+  {
+    title: "ExcelJS Automated Population",
+    filename: "Backend Excel Engine",
+    desc: "Populates cell formatting, formulas, borders, and student metadata programmatically without requiring Microsoft Office installed on the server.",
+    badge: "ExcelJS Driven",
+  },
+  {
+    title: "Batch Export & Instant Print",
+    filename: "PDF & XLSX Out",
+    desc: "Generate form suites for entire sections or graduating batches in seconds with built-in Flutter PDF preview and direct printing support.",
+    badge: "Batch Generation",
+  },
+];
+---
+
+<section id="school-forms" class="relative bg-[#09110c] py-24 border-t border-[#1f3627] text-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid gap-12 lg:grid-cols-12 lg:items-center">
+      
+      <!-- Left Column: Description & Feature List -->
+      <div class="lg:col-span-6">
+        <div class="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 text-xs font-semibold text-amber-400">
+          <img src="/tis_logo.png" alt="TIS" class="h-3.5 w-3.5 object-contain" />
+          <span>DepEd Official Compliance</span>
+        </div>
+
+        <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl leading-tight">
+          Automated DepEd School Form 10 (SF-10) Generation.
+        </h2>
+
+        <p class="mt-4 text-base text-slate-300 sm:text-lg leading-relaxed">
+          TIS RMS bridges student database records directly with official Philippine Department of Education Excel forms. Export fully populated <strong>SF-10 JHS</strong> and <strong>SF-10 SHS</strong> permanent records with mathematical formulas and promotional remarks intact.
+        </p>
+
+        <!-- Feature List Cards -->
+        <div class="mt-8 space-y-4">
+          {schoolFormFeatures.map((item) => (
+            <div class="flex items-start gap-4 rounded-xl border border-[#233e2e] bg-[#112017]/80 p-4 transition hover:border-[#16a34a] hover:bg-[#15271d]">
+              <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#16a34a]/15 text-[#4ade80] font-bold border border-[#16a34a]/30">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="font-display text-sm font-bold text-white">{item.title}</h3>
+                  <span class="rounded-md bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 text-[10px] font-bold text-amber-300">
+                    {item.badge}
+                  </span>
+                </div>
+                <div class="text-[11px] font-mono text-emerald-400 mt-0.5">{item.filename}</div>
+                <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Card Preview of SF-10 Sheet Structure -->
+      <div class="lg:col-span-6">
+        <div class="overflow-hidden rounded-2xl border border-[#23412f] bg-[#0c1610] text-white shadow-2xl">
+          
+          <!-- Mock Excel Window Header with Authentic Green Bar -->
+          <div class="flex items-center justify-between border-b border-[#1f3627] bg-[#15803d] px-4 py-2.5">
+            <div class="flex items-center gap-2">
+              <span class="h-3 w-3 rounded-full bg-rose-500"></span>
+              <span class="h-3 w-3 rounded-full bg-amber-500"></span>
+              <span class="h-3 w-3 rounded-full bg-emerald-300"></span>
+            </div>
+            <div class="text-xs font-mono text-white font-semibold">
+              SSHS-SF-10-v2026_corrected.xlsx
+            </div>
+            <span class="rounded bg-black/25 px-2 py-0.5 text-[10px] font-mono text-emerald-200">
+              ExcelJS Live Engine
+            </span>
+          </div>
+
+          <!-- Mock Form Grid Content -->
+          <div class="p-5 space-y-4 bg-[#09110c]">
+            
+            <!-- Learner Information Block -->
+            <div class="rounded-xl border border-[#23412f] bg-[#112017] p-4">
+              <div class="text-xs font-mono font-bold uppercase tracking-wider text-[#4ade80]">
+                1. Learner Information Section
+              </div>
+              <div class="mt-3 grid grid-cols-2 gap-2.5 text-xs">
+                <div class="rounded-lg bg-[#09110c] p-2.5 border border-[#1f3627]">
+                  <div class="text-[10px] text-slate-400">LRN (Learner Reference No.)</div>
+                  <div class="font-mono font-bold text-emerald-400 mt-0.5">108297100170</div>
+                </div>
+                <div class="rounded-lg bg-[#09110c] p-2.5 border border-[#1f3627]">
+                  <div class="text-[10px] text-slate-400">Student Full Name</div>
+                  <div class="font-bold text-white mt-0.5">GARCIA, CRIS CHARLES</div>
+                </div>
+                <div class="rounded-lg bg-[#09110c] p-2.5 border border-[#1f3627]">
+                  <div class="text-[10px] text-slate-400">Track & Strand / Section</div>
+                  <div class="font-bold text-amber-400 mt-0.5">Grade 7 - Susan</div>
+                </div>
+                <div class="rounded-lg bg-[#09110c] p-2.5 border border-[#1f3627]">
+                  <div class="text-[10px] text-slate-400">School Name & Location</div>
+                  <div class="font-bold text-white mt-0.5">Talisay Integrated School (Tiaong)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Scholastic Record Block -->
+            <div class="rounded-xl border border-[#23412f] bg-[#112017] p-4">
+              <div class="flex items-center justify-between">
+                <div class="text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
+                  2. Scholastic Record & Ratings
+                </div>
+                <span class="text-[11px] font-mono text-emerald-400">Junior High School Form 10</span>
+              </div>
+
+              <!-- Mini Table -->
+              <div class="mt-3 overflow-x-auto">
+                <table class="w-full text-left text-xs font-mono">
+                  <thead>
+                    <tr class="border-b border-[#1f3627] text-slate-400 text-[10px]">
+                      <th class="pb-1.5 font-semibold">Subject Title</th>
+                      <th class="pb-1.5 font-semibold text-center">Q1</th>
+                      <th class="pb-1.5 font-semibold text-center">Q2</th>
+                      <th class="pb-1.5 font-semibold text-center">Final</th>
+                      <th class="pb-1.5 font-semibold text-right">Remarks</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-[#1f3627]/60 text-slate-300">
+                    <tr>
+                      <td class="py-1.5 font-semibold text-white">General Mathematics</td>
+                      <td class="text-center">92</td>
+                      <td class="text-center">94</td>
+                      <td class="text-center font-bold text-emerald-400">93</td>
+                      <td class="text-right text-[#4ade80] font-bold">PASSED</td>
+                    </tr>
+                    <tr>
+                      <td class="py-1.5 font-semibold text-white">Earth and Life Science</td>
+                      <td class="text-center">88</td>
+                      <td class="text-center">90</td>
+                      <td class="text-center font-bold text-emerald-400">89</td>
+                      <td class="text-right text-[#4ade80] font-bold">PASSED</td>
+                    </tr>
+                    <tr>
+                      <td class="py-1.5 font-semibold text-white">Oral Communication</td>
+                      <td class="text-center">95</td>
+                      <td class="text-center">96</td>
+                      <td class="text-center font-bold text-emerald-400">96</td>
+                      <td class="text-right text-[#4ade80] font-bold">PASSED</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Output Action Callout -->
+            <div class="flex items-center justify-between rounded-xl bg-[#16a34a]/20 border border-[#16a34a]/40 p-3.5 text-xs text-white">
+              <div class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Automated Formula Calculation (General Average: <strong class="text-emerald-300">92.67</strong>)</span>
+              </div>
+              <span class="rounded bg-[#16a34a] px-2.5 py-1 font-mono font-bold text-white shadow">Export XLSX</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

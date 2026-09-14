@@ -7,29 +7,35 @@ interface Props {
 }
 
 const {
-  title = "TIS_RMS — Record Management System",
-  description = "A modern record management system for efficient student records, document processing, reporting, and archival.",
+  title = "TIS_RMS — Talisay Integrated School Record Management System | Tiaong, Quezon",
+  description = "Official Record Management System for Talisay Integrated School in Tiaong, Quezon, Philippines. Designed for teachers with automated DepEd SF-10 generation, student LRN lookup, document completion tracking, and offline campus LAN resilience.",
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
-
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#15803d" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/tis_logo.png" />
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <title>{title}</title>
 
-    <link rel="icon" href="/logo.png" />
+    <link rel="icon" href="/tis_logo.png" type="image/png" />
   </head>
 
-  <body>
+  <body class="bg-[#09110c] text-slate-100 selection:bg-[#16a34a] selection:text-white school-watermark-bg min-h-screen">
     <slot />
   </body>
-</html>
+</html>

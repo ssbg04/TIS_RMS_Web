@@ -1,0 +1,181 @@
+---
+// Downloads component - Official installers for Talisay Integrated School
+---
+
+<section id="downloads" class="relative bg-[#09110c] py-24 text-white overflow-hidden border-t border-[#1f3627]">
+  <!-- Glow Accents -->
+  <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+    <div class="absolute left-1/3 top-0 h-[600px] w-[600px] rounded-full bg-[#16a34a]/15 blur-[140px]"></div>
+    <div class="absolute right-10 bottom-0 h-[450px] w-[450px] rounded-full bg-[#f59e0b]/10 blur-[120px]"></div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header -->
+    <div class="mx-auto max-w-3xl text-center">
+      <div class="inline-flex items-center gap-2 rounded-full border border-[#2a4c37] bg-[#112017] px-4 py-1 text-xs font-semibold text-[#4ade80]">
+        <img src="/tis_logo.png" alt="TIS Logo" class="h-3.5 w-3.5 object-contain" />
+        <span>Official Distribution</span>
+      </div>
+      <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+        Download TIS RMS Releases
+      </h2>
+      <p class="mt-4 text-base text-slate-300 sm:text-lg">
+        Deploy the Windows desktop client for teacher PCs, install the Android APK for mobile scanning, or set up the campus server daemon.
+      </p>
+    </div>
+
+    <!-- Release Artifacts Cards Grid -->
+    <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      
+      <!-- Card 1: Windows Client -->
+      <div class="group relative flex flex-col justify-between rounded-3xl border border-[#23412f] bg-[#112017]/90 p-7 shadow-2xl backdrop-blur-xl transition hover:border-[#16a34a] hover:bg-[#15271d]">
+        <div>
+          <div class="flex items-center justify-between">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600/20 text-blue-400 border border-blue-500/30">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M0 3.449L9.75 2.1v9.451H0m10.95-9.6L24 0v11.4H10.95M0 12.6h9.75v9.451L0 20.699M10.95 12.6H24V24l-13.05-1.8" />
+              </svg>
+            </div>
+            <span class="rounded-full bg-[#16a34a]/15 px-3 py-1 text-xs font-mono font-semibold text-[#4ade80] border border-[#16a34a]/30">
+              v1.0.0 (Latest)
+            </span>
+          </div>
+
+          <h3 class="mt-6 font-display text-xl font-bold text-white">Windows Desktop Setup</h3>
+          <p class="mt-1.5 text-xs text-emerald-400 font-mono">TIS_RMS_Client_Setup.exe</p>
+          
+          <p class="mt-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Full Windows installation package created with Inno Setup. Includes desktop shortcuts, document processing helpers, and direct campus LAN connectivity.
+          </p>
+
+          <div class="mt-6 space-y-2 text-xs text-slate-400 font-mono">
+            <div class="flex items-center gap-2">
+              <svg class="h-4 w-4 text-[#4ade80]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Windows 10 / 11 (64-bit)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="h-4 w-4 text-[#4ade80]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Teacher Workstations & Registrars</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <a
+            href="https://github.com/ssbg04/TIS_RMS/releases/latest"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#16a34a] to-[#15803d] py-3.5 text-xs font-semibold text-white shadow-lg shadow-[#16a34a]/30 transition hover:from-[#15803d] hover:to-[#0f5c2b]"
+          >
+            <span>Download Setup (.exe)</span>
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Android Universal APK -->
+      <div class="group relative flex flex-col justify-between rounded-3xl border border-[#23412f] bg-[#112017]/90 p-7 shadow-2xl backdrop-blur-xl transition hover:border-[#16a34a] hover:bg-[#15271d]">
+        <div>
+          <div class="flex items-center justify-between">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-600/20 text-[#4ade80] border border-emerald-500/30">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.552 0 .9997.4482.9997.9993s-.4477.9997-.9997.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.552 0 .9997.4482.9997.9993s-.4477.9997-.9997.9997m11.405-6.0028l1.9973-3.4592c.1192-.2066.0486-.4715-.158-.5907-.2066-.1192-.4715-.0486-.5907.158l-2.0238 3.505c-1.4646-.6692-3.1235-1.0505-4.8988-1.0772v-.0063c-1.7753.0267-3.4342.408-4.8988 1.0772l-2.0238-3.505c-.1192-.2066-.3841-.2772-.5907-.158-.2066.1192-.2772.3841-.158.5907l1.9973 3.4592c-3.1368 1.7061-5.2638 4.8875-5.5267 8.618h22.4095c-.2629-3.7305-2.3899-6.9119-5.5267-8.618" />
+              </svg>
+            </div>
+            <span class="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-mono font-semibold text-[#4ade80] border border-emerald-500/20">
+              Universal Build
+            </span>
+          </div>
+
+          <h3 class="mt-6 font-display text-xl font-bold text-white">Android Mobile Client</h3>
+          <p class="mt-1.5 text-xs text-emerald-400 font-mono">TIS_RMS_Android_Universal.apk</p>
+          
+          <p class="mt-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Universal Android APK for educators. Features MLKit camera document scanning, offline cache, and instant document upload to the school database.
+          </p>
+
+          <div class="mt-6 space-y-2 text-xs text-slate-400 font-mono">
+            <div class="flex items-center gap-2">
+              <svg class="h-4 w-4 text-[#4ade80]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Android 8.0+ (ARM64 & x86_64)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="h-4 w-4 text-[#4ade80]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>MLKit Camera Scanner</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <a
+            href="https://github.com/ssbg04/TIS_RMS/releases/download/v1.0.0/TIS_RMS_Android_Universal.apk"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-2 rounded-xl bg-[#16271c] py-3.5 text-xs font-semibold text-white transition hover:bg-[#1d3525] border border-[#23412f]"
+          >
+            <span>Download APK (.apk)</span>
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Backend Windows Service Setup -->
+      <div class="group relative flex flex-col justify-between rounded-3xl border border-[#23412f] bg-[#112017]/90 p-7 shadow-2xl backdrop-blur-xl transition hover:border-[#16a34a] hover:bg-[#15271d] md:col-span-2 lg:col-span-1">
+        <div>
+          <div class="flex items-center justify-between">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/30">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+              </svg>
+            </div>
+            <span class="rounded-full bg-amber-500/15 px-3 py-1 text-xs font-mono font-semibold text-amber-300 border border-amber-500/30">
+              Campus Server
+            </span>
+          </div>
+
+          <h3 class="mt-6 font-display text-xl font-bold text-white">Backend School Server</h3>
+          <p class="mt-1.5 text-xs text-amber-400 font-mono">Node.js Express Campus Daemon</p>
+          
+          <p class="mt-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Run the Node backend continuously on your school server PC via NSSM background service — accessible across faculty Wi-Fi.
+          </p>
+
+          <div class="mt-4 rounded-xl border border-[#1f3627] bg-[#09110c] p-3 font-mono text-[11px] text-[#4ade80] space-y-1">
+            <div>npm run service:install</div>
+            <div>npm run service:start</div>
+            <div class="text-slate-500">npm run service:status</div>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <a
+            href="https://github.com/ssbg04/TIS_RMS"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-2 rounded-xl bg-[#16271c] py-3.5 text-xs font-semibold text-white transition hover:bg-[#1d3525] border border-[#23412f]"
+          >
+            <span>View Source on GitHub</span>
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

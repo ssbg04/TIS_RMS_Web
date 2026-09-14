@@ -1,0 +1,93 @@
+---
+// Footer component - Talisay Integrated School Record Management System
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-[#070e0a] border-t border-[#1f3627] text-slate-400 text-xs py-14">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid gap-10 md:grid-cols-12 pb-12 border-b border-[#172b1e]">
+      
+      <!-- Brand & One Sentence Summary -->
+      <div class="md:col-span-5 space-y-4">
+        <div class="flex items-center gap-3">
+          <img
+            src="/tis_logo.png"
+            alt="Talisay Integrated School Seal"
+            class="h-10 w-10 object-contain drop-shadow-[0_2px_8px_rgba(22,163,74,0.3)]"
+          />
+          <div>
+            <span class="font-display text-base font-bold text-white tracking-tight">TIS RMS</span>
+            <div class="text-[10px] text-amber-400 font-semibold tracking-wide">
+              Talisay Integrated School • Tiaong, Quezon
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-300 leading-relaxed max-w-sm">
+          A client-server school Record Management System designed for <strong>Talisay Integrated School in Tiaong, Quezon, Philippines</strong>. Built for teachers to automate DepEd SF-10 reports, manage student LRN profiles, track document requirements, and process scanned forms with Tesseract OCR over the offline campus LAN.
+        </p>
+
+        <div class="inline-flex items-center gap-2 rounded-lg bg-[#112017] px-3 py-1.5 font-mono text-[11px] text-slate-400 border border-[#23412f]">
+          <span>App Identity:</span>
+          <span class="text-[#4ade80] font-semibold">plsp.bsit3dsb.tisrms</span>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="md:col-span-3 space-y-3">
+        <h4 class="font-display text-xs font-bold uppercase tracking-wider text-slate-200">Teacher Tools</h4>
+        <ul class="space-y-2">
+          <li><a href="#showcase" class="hover:text-[#4ade80] transition">App Showcase</a></li>
+          <li><a href="#hero-features" class="hover:text-[#4ade80] transition">Key Features</a></li>
+          <li><a href="#school-forms" class="hover:text-[#4ade80] transition">DepEd SF-10 Automation</a></li>
+          <li><a href="#ocr-pipeline" class="hover:text-[#4ade80] transition">OCR Document Engine</a></li>
+          <li><a href="#architecture" class="hover:text-[#4ade80] transition">Campus LAN Offline Mode</a></li>
+          <li><a href="#tech-stack" class="hover:text-[#4ade80] transition">System Architecture</a></li>
+        </ul>
+      </div>
+
+      <!-- Release & Distribution Links -->
+      <div class="md:col-span-4 space-y-3">
+        <h4 class="font-display text-xs font-bold uppercase tracking-wider text-slate-200">Release & Distribution</h4>
+        <ul class="space-y-2">
+          <li>
+            <a href="https://github.com/ssbg04/TIS_RMS/releases/latest" target="_blank" rel="noopener noreferrer" class="hover:text-[#4ade80] transition flex items-center gap-1.5">
+              <span>Windows Desktop Installer (.exe)</span>
+              <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/ssbg04/TIS_RMS/releases/download/v1.0.0/TIS_RMS_Android_Universal.apk" target="_blank" rel="noopener noreferrer" class="hover:text-[#4ade80] transition flex items-center gap-1.5">
+              <span>Android Universal APK (.apk)</span>
+              <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/ssbg04/TIS_RMS" target="_blank" rel="noopener noreferrer" class="hover:text-[#4ade80] transition flex items-center gap-1.5">
+              <span>GitHub Repository (ssbg04/TIS_RMS)</span>
+              <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </li>
+        </ul>
+
+        <div class="pt-2">
+          <div class="text-[11px] text-slate-400">Developed by <strong class="text-white">BSIT3DSB</strong> for Talisay Integrated School</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
+      <div>
+        © {currentYear} Talisay Integrated School — Record Management System (TIS RMS). Tiaong, Quezon, Philippines.
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#downloads" class="hover:text-white transition">Downloads</a>
+        <a href="https://github.com/ssbg04/TIS_RMS" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">GitHub</a>
+      </div>
+    </div>
+
+  </div>
+</footer>

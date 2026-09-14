@@ -1,0 +1,105 @@
+---
+// Features component - Teacher & Staff Centric for Talisay Integrated School
+const featuresList = [
+  {
+    num: "01",
+    title: "Advisory Class & Section Roster",
+    description: "Effortlessly manage Junior & Senior High learner profiles, track section assignments (e.g. Grade 7 - Susan, Grade 10 - Rizal), and perform fast 12-digit LRN search.",
+    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+    tag: "Advisory Management",
+  },
+  {
+    num: "02",
+    title: "Document Checklist (3/6 Docs)",
+    description: "Monitor mandatory requirements per student (PSA Birth Certificate, Form 137, Report Card, Good Moral) with visual progress bars and instant PDF previews.",
+    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+    tag: "Requirement Tracker",
+  },
+  {
+    num: "03",
+    title: "Automated OCR Document Scanner",
+    description: "Digitize paper transcripts and report cards automatically using local Tesseract OCR, saving teachers countless hours of manual data entry.",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z",
+    tag: "Tesseract OCR",
+  },
+  {
+    num: "04",
+    title: "One-Click DepEd SF-10 Excel Export",
+    description: "Generate official DepEd School Form 10 (JHS and SHS v2026) spreadsheets with pre-populated learning areas, quarterly grades, and automated general averages.",
+    icon: "M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+    tag: "DepEd SF-10 Ready",
+  },
+  {
+    num: "05",
+    title: "DepEd Transparency & 4Ps Analytics",
+    description: "Monitor school enrollment trends, track 4Ps beneficiaries, log transferees and dropouts, and export audit-ready PDF reports for Division inspection.",
+    icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+    tag: "Compliance Board",
+  },
+  {
+    num: "06",
+    title: "100% Offline Campus LAN Resilience",
+    description: "Designed specifically for Talisay Integrated School — access and update records smoothly even during internet or cloud outages in Tiaong, Quezon.",
+    icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
+    tag: "Local SQLite Server",
+  },
+];
+---
+
+<section id="features" class="relative bg-[#09110c] py-24 border-t border-[#1f3627] text-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Title -->
+    <div class="mx-auto max-w-3xl text-center">
+      <div class="inline-flex items-center gap-2 rounded-full border border-[#2a4c37] bg-[#112017] px-4 py-1 text-xs font-semibold text-[#4ade80]">
+        <img src="/tis_logo.png" alt="TIS Logo" class="h-3.5 w-3.5 object-contain" />
+        <span>Built For Educators</span>
+      </div>
+      <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+        Features that give teachers their time back.
+      </h2>
+      <p class="mt-4 text-base text-slate-300 sm:text-lg">
+        Designed from the ground up to solve real record-keeping and DepEd compliance challenges at Talisay Integrated School.
+      </p>
+    </div>
+
+    <!-- Feature Grid -->
+    <div class="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {featuresList.map((item) => (
+        <div class="group relative flex flex-col justify-between rounded-2xl border border-[#233e2e] bg-[#112017]/90 p-7 shadow-lg transition-all duration-300 hover:border-[#16a34a] hover:bg-[#15271d] hover:shadow-2xl hover:shadow-[#16a34a]/10 hover:-translate-y-1">
+          
+          <div>
+            <div class="flex items-center justify-between">
+              <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#16a34a]/15 text-[#4ade80] border border-[#16a34a]/25 transition-colors group-hover:bg-[#16a34a] group-hover:text-white">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
+                </svg>
+              </div>
+
+              <span class="rounded-md bg-black/30 border border-[#23412f] px-2.5 py-1 text-[11px] font-mono font-bold text-amber-400">
+                {item.tag}
+              </span>
+            </div>
+
+            <h3 class="mt-6 font-display text-lg font-bold text-white group-hover:text-[#a7f3d0] transition-colors">
+              {item.title}
+            </h3>
+
+            <p class="mt-2.5 text-xs sm:text-sm leading-relaxed text-slate-300">
+              {item.description}
+            </p>
+          </div>
+
+          <div class="mt-6 flex items-center gap-1.5 text-xs font-semibold text-[#4ade80]">
+            <span>Learn more</span>
+            <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

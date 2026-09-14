@@ -1,33 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 :root {
-  --green: #1c8248;
-  --green-dark: #085f32;
-  --background: #f5f7f6;
-  --foreground: #142019;
-  --muted: #66736b;
-  --border: #dce4df;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Color palette extracted directly from screenshots and official school seal */
+  --bg-dark-base: #09110c;
+  --bg-dark-surface: #0e1a12;
+  --bg-card: #132219;
+  --bg-card-hover: #182c20;
+  --border-subtle: #1f3627;
+  --border-strong: #2a4c37;
+  
+  --brand-green: #16a34a;
+  --brand-green-light: #22c55e;
+  --brand-green-glow: #4ade80;
+  --brand-green-deep: #15803d;
+  --brand-green-dark: #0a4d25;
+
+  --school-gold: #f59e0b;
+  --school-gold-light: #fbbf24;
+  --school-gold-glow: rgba(245, 158, 11, 0.25);
+
+  --fg-main: #f8fafc;
+  --fg-muted: #94a3b8;
+  --fg-emerald: #a7f3d0;
 }
 
 html {
   scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--bg-dark-base);
+  color: var(--fg-main);
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
-  background: var(--background);
-  color: var(--foreground);
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  background-color: var(--bg-dark-base);
+  color: var(--fg-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono);
 }
 
 ::selection {
-  background: var(--green);
-  color: white;
+  background: var(--brand-green);
+  color: #ffffff;
 }
+
+/* Glassmorphism & Surface Utilities */
+.glass-panel-dark {
+  background: rgba(19, 34, 25, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(42, 76, 55, 0.6);
+}
+
+.glass-nav {
+  background: rgba(14, 26, 18, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(42, 76, 55, 0.5);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 45px -10px rgba(34, 197, 94, 0.25);
+}
+
+.glow-gold {
+  box-shadow: 0 0 35px -10px rgba(245, 158, 11, 0.3);
+}
+
+/* Watermark background curve pattern */
+.school-watermark-bg {
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(22, 163, 74, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 90% 40%, rgba(245, 158, 11, 0.06), transparent),
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 3.5rem 3.5rem, 3.5rem 3.5rem;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes pulseEmerald {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-pulse-emerald {
+  animation: pulseEmerald 4s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09110c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f3627;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #16a34a;
+}

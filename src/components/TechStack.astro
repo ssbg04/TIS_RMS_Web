@@ -1,0 +1,113 @@
+---
+// TechStack component - Architecture & Libraries
+const frontendTech = [
+  { name: "Flutter", role: "UI Framework", desc: "Cross-platform client UI" },
+  { name: "Dart 3.11+", role: "Language", desc: "Strictly typed core" },
+  { name: "Riverpod", role: "State Management", desc: "Reactive data flow" },
+  { name: "Dio", role: "HTTP Client", desc: "Campus LAN networking" },
+  { name: "Syncfusion PDF", role: "PDF Viewer", desc: "Student record rendering" },
+  { name: "MLKit Scanner", role: "Mobile Scanner", desc: "Camera document capture" },
+  { name: "fl_chart", role: "Data Visualization", desc: "Dashboard enrollment charts" },
+  { name: "Inno Setup", role: "Windows Installer", desc: "Desktop packaging" },
+];
+
+const backendTech = [
+  { name: "Node.js", role: "Runtime", desc: "Local school server runtime" },
+  { name: "Express 5.2", role: "REST API", desc: "Campus LAN route handlers" },
+  { name: "SQLite", role: "Database", desc: "Local `tis_rms.db` file" },
+  { name: "better-sqlite3", role: "DB Driver", desc: "High speed synchronous query" },
+  { name: "Role-Based JWT", role: "Access Control", desc: "Teacher & Adviser permissions" },
+  { name: "ExcelJS", role: "Spreadsheet Engine", desc: "DepEd SF-10 population" },
+  { name: "Tesseract OCR", role: "OCR Extraction", desc: "Text recognition engine" },
+  { name: "NSSM", role: "Windows Service", desc: "Background service daemon" },
+];
+---
+
+<section id="tech-stack" class="relative bg-[#09110c] py-24 border-t border-[#1f3627] text-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Title -->
+    <div class="mx-auto max-w-3xl text-center">
+      <div class="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-3.5 py-1 text-xs font-semibold text-purple-400">
+        <img src="/tis_logo.png" alt="TIS" class="h-3.5 w-3.5 object-contain" />
+        <span>Engineering & Stack</span>
+      </div>
+      <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
+        Built with battle-tested tech.
+      </h2>
+      <p class="mt-4 text-base text-slate-300 sm:text-lg">
+        Architected for long-term stability, offline reliability, and fast local execution on school hardware.
+      </p>
+    </div>
+
+    <!-- Dual Column Stack Grid -->
+    <div class="mt-16 grid gap-8 lg:grid-cols-2">
+      
+      <!-- Frontend Column -->
+      <div class="rounded-3xl border border-[#233e2e] bg-[#112017]/90 p-6 sm:p-8">
+        <div class="flex items-center justify-between border-b border-[#1f3627] pb-4">
+          <div class="flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white font-bold">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-display text-lg font-bold text-white">Frontend Stack</h3>
+              <p class="text-xs text-slate-400">Flutter Windows & Android Client</p>
+            </div>
+          </div>
+          <span class="rounded-lg bg-blue-500/15 border border-blue-500/30 px-2.5 py-1 text-xs font-mono font-bold text-blue-400">
+            Dart ^3.11.5
+          </span>
+        </div>
+
+        <div class="mt-6 grid grid-cols-2 gap-3">
+          {frontendTech.map((item) => (
+            <div class="rounded-xl border border-[#1f3627] bg-[#09110c] p-3.5 shadow-sm transition hover:border-[#16a34a]">
+              <div class="flex items-center justify-between">
+                <span class="font-display text-xs font-bold text-white">{item.name}</span>
+              </div>
+              <div class="text-[10px] font-semibold text-blue-400 mt-0.5">{item.role}</div>
+              <p class="text-[11px] text-slate-400 mt-1">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Backend Column -->
+      <div class="rounded-3xl border border-[#233e2e] bg-[#112017]/90 p-6 sm:p-8">
+        <div class="flex items-center justify-between border-b border-[#1f3627] pb-4">
+          <div class="flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#16a34a] text-white font-bold">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-display text-lg font-bold text-white">Backend & Server</h3>
+              <p class="text-xs text-slate-400">Node.js Express Local REST API</p>
+            </div>
+          </div>
+          <span class="rounded-lg bg-[#16a34a]/15 border border-[#16a34a]/30 px-2.5 py-1 text-xs font-mono font-bold text-[#4ade80]">
+            Node + SQLite
+          </span>
+        </div>
+
+        <div class="mt-6 grid grid-cols-2 gap-3">
+          {backendTech.map((item) => (
+            <div class="rounded-xl border border-[#1f3627] bg-[#09110c] p-3.5 shadow-sm transition hover:border-[#16a34a]">
+              <div class="flex items-center justify-between">
+                <span class="font-display text-xs font-bold text-white">{item.name}</span>
+              </div>
+              <div class="text-[10px] font-semibold text-[#4ade80] mt-0.5">{item.role}</div>
+              <p class="text-[11px] text-slate-400 mt-1">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
