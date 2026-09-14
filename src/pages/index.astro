@@ -1,17 +1,453 @@
 ---
+import Layout from "../layouts/Layout.astro";
 
+const features = [
+  {
+    number: "01",
+    title: "Student Records",
+    description:
+      "Organize and manage student information through a centralized record system.",
+  },
+  {
+    number: "02",
+    title: "Document Management",
+    description:
+      "Store, process, and organize important student documents and archives.",
+  },
+  {
+    number: "03",
+    title: "OCR Processing",
+    description:
+      "Extract useful information from scanned school documents using OCR.",
+  },
+  {
+    number: "04",
+    title: "Reports & Export",
+    description:
+      "Generate structured reports and export records for school operations.",
+  },
+  {
+    number: "05",
+    title: "Role-Based Access",
+    description:
+      "Separate administrative and teaching responsibilities with controlled access.",
+  },
+  {
+    number: "06",
+    title: "Backup & Recovery",
+    description:
+      "Protect records through database snapshots and document backups.",
+  },
+];
+
+const screenshots = [
+  {
+    title: "Dashboard",
+    image: "/screenshots/dashboard.webp",
+  },
+  {
+    title: "Student Records",
+    image: "/screenshots/students.webp",
+  },
+  {
+    title: "Documents",
+    image: "/screenshots/documents.webp",
+  },
+  {
+    title: "Reports",
+    image: "/screenshots/reports.webp",
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <!-- NAVIGATION -->
+  <header class="fixed left-0 right-0 top-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+
+      <a href="/" class="flex items-center gap-3">
+        <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-[#1c8248] text-sm font-bold text-white">
+          T
+        </div>
+
+        <div>
+          <div class="font-semibold tracking-tight">
+            TIS_RMS
+          </div>
+
+          <div class="text-[10px] uppercase tracking-[0.18em] text-gray-500">
+            Record Management
+          </div>
+        </div>
+      </a>
+
+      <nav class="hidden items-center gap-8 text-sm text-gray-600 md:flex">
+        <a href="#features" class="transition hover:text-[#1c8248]">
+          Features
+        </a>
+
+        <a href="#screenshots" class="transition hover:text-[#1c8248]">
+          Screenshots
+        </a>
+
+        <a href="#downloads" class="transition hover:text-[#1c8248]">
+          Downloads
+        </a>
+
+        <a
+          href="https://github.com/ssbg04/TIS_RMS"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="transition hover:text-[#1c8248]"
+        >
+          GitHub
+        </a>
+      </nav>
+
+      <a
+        href="#downloads"
+        class="rounded-lg bg-[#1c8248] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#085f32]"
+      >
+        Download
+      </a>
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <main>
+
+    <section class="relative overflow-hidden pt-36 pb-24">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute left-1/2 top-0 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-[#1c8248]/10 blur-3xl"></div>
+      </div>
+
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="max-w-3xl">
+
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-[#1c8248]/20 bg-[#1c8248]/5 px-3 py-1.5 text-sm text-[#085f32]">
+            <span class="h-2 w-2 rounded-full bg-[#1c8248]"></span>
+            School Record Management System
+          </div>
+
+          <h1 class="text-5xl font-semibold leading-[1.05] tracking-[-0.04em] text-gray-950 sm:text-6xl lg:text-7xl">
+            School records,
+            <span class="text-[#1c8248]">
+              organized.
+            </span>
+          </h1>
+
+          <p class="mt-7 max-w-2xl text-lg leading-8 text-gray-600">
+            TIS_RMS is a record management system designed to help schools
+            organize student records, process documents, generate reports,
+            and maintain reliable digital archives.
+          </p>
+
+          <div class="mt-9 flex flex-wrap gap-3">
+
+            <a
+              href="#downloads"
+              class="rounded-xl bg-[#1c8248] px-6 py-3 font-medium text-white shadow-lg shadow-[#1c8248]/20 transition hover:bg-[#085f32]"
+            >
+              Download TIS_RMS
+            </a>
+
+            <a
+              href="https://github.com/ssbg04/TIS_RMS"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-xl border border-gray-300 bg-white px-6 py-3 font-medium text-gray-800 transition hover:border-gray-400 hover:bg-gray-50"
+            >
+              View source
+            </a>
+
+          </div>
+        </div>
+
+
+        <!-- PRODUCT PREVIEW -->
+        <div class="mt-20 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl shadow-black/10">
+          <div class="flex h-10 items-center border-b border-gray-200 px-4">
+            <div class="flex gap-1.5">
+              <span class="h-2.5 w-2.5 rounded-full bg-gray-300"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-gray-300"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-gray-300"></span>
+            </div>
+
+            <div class="mx-auto text-xs text-gray-400">
+              TIS_RMS
+            </div>
+          </div>
+
+          <div class="grid min-h-[380px] grid-cols-[180px_1fr]">
+            <aside class="hidden border-r border-gray-200 bg-gray-50 p-5 sm:block">
+              <div class="mb-8 h-7 w-24 rounded bg-[#1c8248]/10"></div>
+
+              <div class="space-y-3">
+                <div class="h-8 rounded-lg bg-[#1c8248]/10"></div>
+                <div class="h-8 rounded-lg bg-gray-200"></div>
+                <div class="h-8 rounded-lg bg-gray-200"></div>
+                <div class="h-8 rounded-lg bg-gray-200"></div>
+                <div class="h-8 rounded-lg bg-gray-200"></div>
+              </div>
+            </aside>
+
+            <div class="p-6">
+              <div class="mb-8 flex items-center justify-between">
+                <div>
+                  <div class="h-5 w-40 rounded bg-gray-200"></div>
+                  <div class="mt-2 h-3 w-56 rounded bg-gray-100"></div>
+                </div>
+
+                <div class="h-9 w-24 rounded-lg bg-[#1c8248]"></div>
+              </div>
+
+              <div class="grid gap-4 sm:grid-cols-3">
+                <div class="h-28 rounded-xl bg-gray-50"></div>
+                <div class="h-28 rounded-xl bg-gray-50"></div>
+                <div class="h-28 rounded-xl bg-gray-50"></div>
+              </div>
+
+              <div class="mt-5 h-36 rounded-xl bg-gray-50"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- FEATURES -->
+    <section id="features" class="border-t border-gray-200 bg-white py-24">
+      <div class="mx-auto max-w-6xl px-6">
+
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[#1c8248]">
+            Capabilities
+          </p>
+
+          <h2 class="mt-3 text-4xl font-semibold tracking-tight text-gray-950">
+            Everything needed to manage school records.
+          </h2>
+
+          <p class="mt-4 leading-7 text-gray-600">
+            Built around practical school record workflows instead of
+            unnecessary complexity.
+          </p>
+        </div>
+
+
+        <div class="mt-14 grid gap-px overflow-hidden rounded-2xl border border-gray-200 bg-gray-200 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            features.map((feature) => (
+              <article class="bg-white p-7 transition hover:bg-gray-50">
+                <span class="text-sm font-medium text-[#1c8248]">
+                  {feature.number}
+                </span>
+
+                <h3 class="mt-8 text-lg font-semibold">
+                  {feature.title}
+                </h3>
+
+                <p class="mt-3 text-sm leading-6 text-gray-600">
+                  {feature.description}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SCREENSHOTS -->
+    <section id="screenshots" class="py-24">
+      <div class="mx-auto max-w-6xl px-6">
+
+        <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[#1c8248]">
+              Interface
+            </p>
+
+            <h2 class="mt-3 text-4xl font-semibold tracking-tight">
+              Built for everyday use.
+            </h2>
+          </div>
+
+          <p class="max-w-md text-sm leading-6 text-gray-600">
+            A straightforward interface designed for administrators,
+            teachers, and staff.
+          </p>
+        </div>
+
+
+        <div class="mt-12 grid gap-6 md:grid-cols-2">
+          {
+            screenshots.map((item) => (
+              <figure class="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                <img
+                  src={item.image}
+                  alt={`TIS_RMS ${item.title} interface`}
+                  loading="lazy"
+                  class="aspect-video w-full object-cover"
+                />
+
+                <figcaption class="border-t border-gray-100 px-5 py-4 text-sm font-medium">
+                  {item.title}
+                </figcaption>
+              </figure>
+            ))
+          }
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- DOWNLOADS -->
+    <section id="downloads" class="border-t border-gray-200 bg-[#085f32] py-24 text-white">
+      <div class="mx-auto max-w-6xl px-6">
+
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-white/60">
+            Downloads
+          </p>
+
+          <h2 class="mt-3 text-4xl font-semibold tracking-tight">
+            Get TIS_RMS.
+          </h2>
+
+          <p class="mt-4 leading-7 text-white/70">
+            Download the latest release for your platform from GitHub.
+          </p>
+        </div>
+
+
+        <div class="mt-12 grid gap-5 md:grid-cols-2">
+
+          <a
+            href="https://github.com/ssbg04/TIS_RMS/releases/latest"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group rounded-2xl border border-white/15 bg-white/5 p-7 transition hover:bg-white/10"
+          >
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-sm text-white/50">
+                  Windows
+                </p>
+
+                <h3 class="mt-2 text-xl font-semibold">
+                  Windows Installer
+                </h3>
+              </div>
+
+              <span class="text-xl transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </div>
+
+            <p class="mt-6 text-sm leading-6 text-white/60">
+              Download the Windows desktop application from the latest
+              GitHub release.
+            </p>
+          </a>
+
+
+          <a
+            href="https://github.com/ssbg04/TIS_RMS/releases/latest"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group rounded-2xl border border-white/15 bg-white/5 p-7 transition hover:bg-white/10"
+          >
+            <div class="flex items-start justify-between">
+              <div>
+                <p class="text-sm text-white/50">
+                  Android
+                </p>
+
+                <h3 class="mt-2 text-xl font-semibold">
+                  Android APK
+                </h3>
+              </div>
+
+              <span class="text-xl transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </div>
+
+            <p class="mt-6 text-sm leading-6 text-white/60">
+              Download the latest universal Android APK from GitHub Releases.
+            </p>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- TECHNOLOGY -->
+    <section class="bg-white py-20">
+      <div class="mx-auto max-w-6xl px-6">
+
+        <div class="border-y border-gray-200 py-10">
+          <p class="text-center text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
+            Technology
+          </p>
+
+          <div class="mt-8 flex flex-wrap justify-center gap-x-10 gap-y-4 text-sm font-medium text-gray-500">
+            <span>Flutter</span>
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>SQLite</span>
+            <span>OCR</span>
+            <span>Ghostscript</span>
+            <span>Tesseract</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="bg-white py-10">
+      <div class="mx-auto flex max-w-6xl flex-col justify-between gap-5 px-6 text-sm text-gray-500 sm:flex-row">
+
+        <div>
+          © {new Date().getFullYear()} TIS_RMS
+        </div>
+
+        <div class="flex gap-6">
+          <a
+            href="https://github.com/ssbg04/TIS_RMS"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-gray-900"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="#features"
+            class="hover:text-gray-900"
+          >
+            Features
+          </a>
+
+          <a
+            href="#downloads"
+            class="hover:text-gray-900"
+          >
+            Downloads
+          </a>
+        </div>
+
+      </div>
+    </footer>
+
+  </main>
+</Layout>
