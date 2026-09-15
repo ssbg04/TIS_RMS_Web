@@ -1,187 +1,116 @@
 ---
-// SchoolForms component - DepEd SF-10 & SF-9 Integration for Talisay Integrated School
-const schoolFormFeatures = [
-  {
-    num: "01",
-    title: "DepEd SF-10 JHS Template",
-    filename: "School-Form-10-JHS.xlsx",
-    desc: "Official Excel template for Junior High School basic learner profiles, LRN identification, and historical school origin (2021 onwards).",
-    badge: "JHS Template",
-  },
-  {
-    num: "02",
-    title: "DepEd SF-10 SHS Template (v2026)",
-    filename: "SSHS-SF-10-v2026_corrected.xlsx",
-    desc: "Official Senior High School template for student basic biographical info, track classification, and historical records.",
-    badge: "SHS v2026 Ready",
-  },
-  {
-    num: "03",
-    title: "ExcelJS Automated Population",
-    filename: "Backend Excel Engine",
-    desc: "Populates official DepEd cell headers, borders, and student metadata programmatically without requiring Microsoft Office on the server.",
-    badge: "ExcelJS Engine",
-  },
-  {
-    num: "04",
-    title: "SF-10 & SF-9 Efficient Registration",
-    filename: "Basic Info Ingestion",
-    desc: "The fastest method to capture basic student info into the local database from old documents (2021 onwards). Not enrollment, basic registration only.",
-    badge: "Efficient Method",
-  },
-];
+// SchoolForms component - SF-10 & SF-9 integration explained simply
 ---
 
-<section id="school-forms" class="relative bg-[#09110c] py-24 border-t border-[#1f3627] text-white">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    
-    <div class="grid gap-12 lg:grid-cols-12 lg:items-center">
-      
-      <!-- Left Column: Description & Feature List -->
-      <div class="lg:col-span-6">
-        <div class="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 text-xs font-semibold text-amber-400">
-          <img src="/tis_logo.png" alt="TIS" class="h-3.5 w-3.5 object-contain" />
-          <span>Historical Records Management (2021+)</span>
-        </div>
+<section id="school-forms" class="relative bg-[#09110c] py-24 border-t border-white/5 text-white">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
 
-        <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl leading-tight">
-          Basic Student Registration via SF-10 & SF-9.
+    <div class="grid gap-14 lg:grid-cols-2 lg:items-center">
+
+      <!-- Left: Description -->
+      <div>
+        <p class="text-sm font-semibold text-amber-400 uppercase tracking-widest mb-3">School Forms</p>
+
+        <h2 class="font-display text-3xl font-bold text-white sm:text-4xl leading-tight">
+          Register students using SF-10 &amp; SF-9 forms.
         </h2>
 
-        <p class="mt-4 text-base text-slate-300 sm:text-lg leading-relaxed">
-          TIS RMS utilizes <strong>SF-10 and SF-9 documents</strong> as the most efficient method to add and catalog student basic information from old documents dated <strong>2021 onwards</strong>. Please note: this is <strong>not an enrollment system</strong>, but a streamlined system for basic registration of basic information with zero grade tracking.
+        <p class="mt-5 text-base text-slate-400 leading-relaxed">
+          TIS RMS uses the official <strong class="text-white">School Form 10 (SF-10)</strong> and <strong class="text-white">School Form 9 (SF-9)</strong> as the fastest way to add student basic information into the system from old documents.
         </p>
 
-        <!-- Feature List Cards - Minimalist Numbered Design -->
-        <div class="mt-8 space-y-3.5">
-          {schoolFormFeatures.map((item) => (
-            <div class="flex items-start gap-4 rounded-xl border border-[#233e2e] bg-[#112017]/80 p-4 transition hover:border-[#16a34a] hover:bg-[#15271d]">
-              <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#16a34a]/20 text-[#4ade80] font-mono text-xs font-bold border border-[#16a34a]/30">
-                {item.num}
-              </div>
-
-              <div>
-                <div class="flex items-center gap-2">
-                  <h3 class="font-display text-sm font-bold text-white">{item.title}</h3>
-                  <span class="rounded bg-black/30 border border-[#23412f] px-2 py-0.5 text-[10px] font-mono text-amber-300">
-                    {item.badge}
-                  </span>
-                </div>
-                <div class="text-[11px] font-mono text-emerald-400 mt-0.5">{item.filename}</div>
-                <p class="mt-1 text-xs text-slate-300 leading-relaxed">{item.desc}</p>
-              </div>
-            </div>
-          ))}
+        <div class="mt-4 rounded-xl border border-amber-500/20 bg-amber-500/8 p-4 text-sm text-amber-300 leading-relaxed">
+          <strong class="text-amber-200">Note:</strong> TIS RMS is for registering basic student information from historical records (2021 onwards). It is <strong>not an enrollment system</strong> and does not track grades.
         </div>
-      </div>
 
-      <!-- Right Column: Card Preview of Basic Info Ingestion Structure (No Grades) -->
-      <div class="lg:col-span-6">
-        <div class="overflow-hidden rounded-2xl border border-[#23412f] bg-[#0c1610] text-white shadow-2xl">
-          
-          <!-- Mock Window Header -->
-          <div class="flex items-center justify-between border-b border-[#1f3627] bg-[#15803d] px-4 py-2.5">
-            <div class="flex items-center gap-2">
-              <span class="h-2.5 w-2.5 rounded-full bg-white/40"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-white/40"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-white/40"></span>
+        <div class="mt-8 space-y-4">
+
+          <div class="flex items-start gap-4 rounded-xl border border-white/8 bg-white/3 p-5">
+            <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#16a34a]/20 text-[#4ade80] text-lg">1</div>
+            <div>
+              <h3 class="font-display text-base font-semibold text-white">School Form 10 (SF-10)</h3>
+              <p class="mt-1 text-sm text-slate-400 leading-relaxed">The main source for student basic information — captures name, LRN, birth date, gender, and originating school.</p>
             </div>
-            <div class="text-xs font-mono text-white font-semibold">
-              SSHS-SF-10-v2026_corrected.xlsx
-            </div>
-            <span class="rounded bg-black/25 px-2 py-0.5 text-[10px] font-mono text-emerald-200">
-              ExcelJS Live Engine
-            </span>
           </div>
 
-          <!-- Mock Form Grid Content -->
-          <div class="p-5 space-y-4 bg-[#09110c]">
-            
-            <!-- Learner Information Block -->
-            <div class="rounded-xl border border-[#23412f] bg-[#112017] p-4">
-              <div class="text-xs font-mono font-bold uppercase tracking-wider text-[#4ade80]">
-                1. Learner Basic Information Section
-              </div>
-              <div class="mt-3 grid grid-cols-2 gap-2.5 text-xs">
-                <div class="rounded-lg bg-[#09110c] p-2.5 border border-[#1f3627]">
-                  <div class="text-[10px] text-slate-400">LRN (Learner Reference No.)</div>
-                  <div class="font-mono font-bold text-emerald-400 mt-0.5">108297100170</div>
-                </div>
-                <div class="rounded-lg bg-[#09110c] p-2.5 border border-[#1f3627]">
-                  <div class="text-[10px] text-slate-400">Student Full Name</div>
-                  <div class="font-bold text-white mt-0.5">GARCIA, CRIS CHARLES</div>
-                </div>
-                <div class="rounded-lg bg-[#09110c] p-2.5 border border-[#1f3627]">
-                  <div class="text-[10px] text-slate-400">Historical Year Level</div>
-                  <div class="font-bold text-amber-400 mt-0.5">Grade 7</div>
-                </div>
-                <div class="rounded-lg bg-[#09110c] p-2.5 border border-[#1f3627]">
-                  <div class="text-[10px] text-slate-400">School Origin & Location</div>
-                  <div class="font-bold text-white mt-0.5">Talisay Integrated School (Tiaong)</div>
-                </div>
-              </div>
+          <div class="flex items-start gap-4 rounded-xl border border-white/8 bg-white/3 p-5">
+            <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-500/15 text-amber-400 text-lg">2</div>
+            <div>
+              <h3 class="font-display text-base font-semibold text-white">School Form 9 (SF-9)</h3>
+              <p class="mt-1 text-sm text-slate-400 leading-relaxed">A supporting document used to cross-reference student identifiers and school year records from old files.</p>
             </div>
+          </div>
 
-            <!-- Historical Document Ingestion Block (No Grades) -->
-            <div class="rounded-xl border border-[#23412f] bg-[#112017] p-4">
-              <div class="flex items-center justify-between">
-                <div class="text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
-                  2. Archived Document Register (2021+)
-                </div>
-                <span class="text-[11px] font-mono text-emerald-400">SF-10 & SF-9 Records</span>
-              </div>
-
-              <!-- Mini Table -->
-              <div class="mt-3 overflow-x-auto">
-                <table class="w-full text-left text-xs font-mono">
-                  <thead>
-                    <tr class="border-b border-[#1f3627] text-slate-400 text-[10px]">
-                      <th class="pb-1.5 font-semibold">Registered Data Field</th>
-                      <th class="pb-1.5 font-semibold">Extracted Value</th>
-                      <th class="pb-1.5 font-semibold text-right">Source Document</th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-[#1f3627]/60 text-slate-300">
-                    <tr>
-                      <td class="py-1.5 font-semibold text-white">Learner Reference Number</td>
-                      <td class="font-bold text-emerald-400">108297100170</td>
-                      <td class="text-right text-[#4ade80]">SF-10 Archive</td>
-                    </tr>
-                    <tr>
-                      <td class="py-1.5 font-semibold text-white">Date of Birth & Sex</td>
-                      <td>2009-04-14 / Male</td>
-                      <td class="text-right text-[#4ade80]">SF-10 Archive</td>
-                    </tr>
-                    <tr>
-                      <td class="py-1.5 font-semibold text-white">Originating School</td>
-                      <td>Talisay Elementary School</td>
-                      <td class="text-right text-[#4ade80]">SF-9 Archive</td>
-                    </tr>
-                    <tr>
-                      <td class="py-1.5 font-semibold text-white">Document Scope</td>
-                      <td>Archived File (2021 Onwards)</td>
-                      <td class="text-right text-amber-400">Cataloged</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+          <div class="flex items-start gap-4 rounded-xl border border-white/8 bg-white/3 p-5">
+            <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-500/15 text-blue-400 text-lg">3</div>
+            <div>
+              <h3 class="font-display text-base font-semibold text-white">Auto-fill SF-10 Spreadsheet</h3>
+              <p class="mt-1 text-sm text-slate-400 leading-relaxed">Once a student is registered, the system can generate a pre-filled official DepEd SF-10 Excel file — ready to submit.</p>
             </div>
-
-            <!-- Output Action Callout -->
-            <div class="flex items-center justify-between rounded-xl bg-[#112017] border border-[#23412f] p-3 text-xs text-white">
-              <div class="text-slate-300">
-                Scope: <strong class="text-emerald-400">Basic Registration Only</strong> (No Grade Tracking)
-              </div>
-              <span class="rounded bg-[#16a34a] px-2.5 py-1 font-mono text-xs font-semibold text-white">
-                Export Record (.xlsx)
-              </span>
-            </div>
-
           </div>
 
         </div>
       </div>
 
+      <!-- Right: Sample record preview -->
+      <div class="overflow-hidden rounded-2xl border border-white/8 bg-[#0c1610] shadow-xl">
+
+        <!-- Window bar -->
+        <div class="flex items-center gap-2 border-b border-white/5 bg-[#15803d] px-5 py-3">
+          <span class="h-2.5 w-2.5 rounded-full bg-white/30"></span>
+          <span class="h-2.5 w-2.5 rounded-full bg-white/30"></span>
+          <span class="h-2.5 w-2.5 rounded-full bg-white/30"></span>
+          <span class="ml-2 text-sm font-medium text-white">Student Registration Form</span>
+        </div>
+
+        <!-- Sample data -->
+        <div class="p-6 space-y-4">
+
+          <div class="rounded-xl border border-white/6 bg-white/3 p-4">
+            <p class="text-xs font-semibold text-[#4ade80] uppercase tracking-wider mb-3">Learner Basic Information</p>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="rounded-lg bg-[#09110c] p-3 border border-white/5">
+                <div class="text-xs text-slate-500 mb-1">LRN</div>
+                <div class="text-sm font-semibold text-[#4ade80]">108297100170</div>
+              </div>
+              <div class="rounded-lg bg-[#09110c] p-3 border border-white/5">
+                <div class="text-xs text-slate-500 mb-1">Full Name</div>
+                <div class="text-sm font-semibold text-white">Garcia, Cris Charles</div>
+              </div>
+              <div class="rounded-lg bg-[#09110c] p-3 border border-white/5">
+                <div class="text-xs text-slate-500 mb-1">Year Level</div>
+                <div class="text-sm font-semibold text-amber-400">Grade 7</div>
+              </div>
+              <div class="rounded-lg bg-[#09110c] p-3 border border-white/5">
+                <div class="text-xs text-slate-500 mb-1">School</div>
+                <div class="text-sm font-semibold text-white">Talisay Integrated School</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-white/6 bg-white/3 p-4 space-y-2.5">
+            <p class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Document Fields (from SF-10)</p>
+            {[
+              ["Date of Birth", "April 14, 2009"],
+              ["Sex", "Male"],
+              ["Originating School", "Talisay Elementary School"],
+              ["Document Source", "SF-10 Archive (2021+)"],
+            ].map(([field, value]) => (
+              <div class="flex items-center justify-between text-sm border-b border-white/5 pb-2 last:border-0 last:pb-0">
+                <span class="text-slate-400">{field}</span>
+                <span class="text-white font-medium">{value}</span>
+              </div>
+            ))}
+          </div>
+
+          <div class="flex items-center justify-between rounded-xl bg-[#16a34a]/10 border border-[#16a34a]/20 p-3.5">
+            <span class="text-sm text-slate-300">Basic info registration only — <span class="text-white font-medium">no grade tracking</span></span>
+            <span class="rounded-lg bg-[#16a34a] px-3 py-1 text-xs font-semibold text-white">Save Record</span>
+          </div>
+
+        </div>
+
+      </div>
     </div>
 
   </div>

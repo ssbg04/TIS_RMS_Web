@@ -1,140 +1,191 @@
 ---
 // Downloads component - Official installers for Talisay Integrated School
+let latestReleaseTag = "v1.0.10";
+let winAssetSize = "19.6 MB";
+let apkAssetSize = "83.4 MB";
+let publishedDateStr = "Latest Release";
+
+try {
+  const res = await fetch("https://api.github.com/repos/ssbg04/TIS_RMS/releases/latest", {
+    headers: { "User-Agent": "TIS-RMS-Web" }
+  });
+  if (res.ok) {
+    const data = await res.json();
+    if (data.tag_name) latestReleaseTag = data.tag_name;
+    if (data.published_at) {
+      publishedDateStr = new Date(data.published_at).toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric"
+      });
+    }
+    const winAsset = data.assets?.find((a: any) => a.name === "TIS_RMS_Client_Setup.exe" || a.name.endsWith(".exe"));
+    const apkAsset = data.assets?.find((a: any) => a.name === "TIS_RMS_Android_Universal.apk" || a.name.endsWith(".apk"));
+    if (winAsset) winAssetSize = `${(winAsset.size / (1024 * 1024)).toFixed(1)} MB`;
+    if (apkAsset) apkAssetSize = `${(apkAsset.size / (1024 * 1024)).toFixed(1)} MB`;
+  }
+} catch (e) {
+  // Gracefully fallback to defaults
+}
 ---
 
-<section id="downloads" class="relative bg-[#09110c] py-24 text-white overflow-hidden border-t border-[#1f3627]">
-  <!-- Glow Accents -->
-  <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-    <div class="absolute left-1/3 top-0 h-[600px] w-[600px] rounded-full bg-[#16a34a]/15 blur-[140px]"></div>
-    <div class="absolute right-10 bottom-0 h-[450px] w-[450px] rounded-full bg-[#f59e0b]/10 blur-[120px]"></div>
-  </div>
+<section id="downloads" class="bg-[#09110c] py-24 text-white border-t border-white/5">
+  <div class="mx-auto max-w-5xl px-5 sm:px-8">
 
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    
     <!-- Header -->
-    <div class="mx-auto max-w-3xl text-center">
-      <div class="inline-flex items-center gap-2 rounded-full border border-[#2a4c37] bg-[#112017] px-4 py-1 text-xs font-semibold text-[#4ade80]">
-        <img src="/tis_logo.png" alt="TIS Logo" class="h-3.5 w-3.5 object-contain" />
-        <span>Official Distribution</span>
-      </div>
-      <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
-        Download TIS RMS Releases
+    <div class="text-center mb-14">
+      <p class="text-sm font-semibold text-[#4ade80] uppercase tracking-widest mb-3">Downloads</p>
+      <h2 class="font-display text-3xl font-bold text-white sm:text-4xl">
+        Get the TIS RMS App
       </h2>
-      <p class="mt-4 text-base text-slate-300 sm:text-lg">
-        Deploy the Windows desktop client for teacher PCs, install the Android APK for mobile scanning, or set up the campus server daemon.
+      <p class="mt-4 text-base text-slate-400 max-w-lg mx-auto leading-relaxed">
+        Free for all Talisay Integrated School staff. Available for Windows and Android.
       </p>
+      <div class="mt-4 flex items-center justify-center gap-2 text-sm text-slate-500">
+        <span id="release-version-label" class="text-slate-300 font-medium">{latestReleaseTag}</span>
+        <span>·</span>
+        <span id="release-date-label">{publishedDateStr}</span>
+        <span>·</span>
+        <a href="https://github.com/ssbg04/TIS_RMS/releases/latest" target="_blank" rel="noopener noreferrer" class="github-release-notes-link text-[#4ade80] hover:underline">Release Notes →</a>
+      </div>
     </div>
 
-    <!-- Release Artifacts Cards Grid -->
-    <div class="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      
-      <!-- Card 1: Windows Client -->
-      <div class="group relative flex flex-col justify-between rounded-2xl border border-[#23412f] bg-[#112017]/90 p-6 transition hover:border-[#16a34a] hover:bg-[#15271d]">
-        <div>
-          <div class="flex items-center justify-between">
-            <span class="font-display font-bold text-sm text-blue-400">Windows Desktop</span>
-            <span class="rounded bg-[#16a34a]/15 px-2.5 py-0.5 text-[10px] font-mono font-semibold text-[#4ade80] border border-[#16a34a]/30">
-              v1.0.0 (Latest)
-            </span>
-          </div>
+    <!-- Download Cards -->
+    <div class="grid gap-5 sm:grid-cols-2">
 
-          <h3 class="mt-4 font-display text-lg font-bold text-white">Windows Desktop Setup</h3>
-          <p class="mt-1 text-xs text-emerald-400 font-mono">TIS_RMS_Client_Setup.exe</p>
-          
-          <p class="mt-3 text-xs text-slate-300 leading-relaxed">
-            Full Windows installation package created with Inno Setup. Includes desktop shortcuts and direct campus LAN database connectivity.
-          </p>
-
-          <div class="mt-5 space-y-1.5 text-xs text-slate-400 font-mono">
-            <div>— Windows 10 / 11 (64-bit)</div>
-            <div>— Teacher Workstations & Registrars</div>
-          </div>
+      <!-- Windows Card -->
+      <div class="flex flex-col rounded-2xl border border-white/8 bg-white/3 p-8">
+        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-500/10 border border-blue-500/15">
+          <svg class="h-7 w-7 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.551H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+          </svg>
         </div>
 
-        <div class="mt-6">
-          <a
-            href="https://github.com/ssbg04/TIS_RMS/releases/latest"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-center rounded-xl bg-[#16a34a] py-3 text-xs font-semibold text-white transition hover:bg-[#15803d]"
-          >
-            Download Setup (.exe)
-          </a>
-        </div>
+        <h3 class="font-display text-xl font-bold text-white">Windows</h3>
+        <p class="mt-2 text-base text-slate-400 leading-relaxed flex-1">
+          The main desktop app for teachers and registrars. One-click installer — works on your school network.
+        </p>
+        <p class="mt-3 text-sm text-slate-500">Windows 10 / 11 · <span id="win-release-size">{winAssetSize}</span></p>
+
+        <a
+          id="win-download-btn"
+          href="https://github.com/ssbg04/TIS_RMS/releases/latest/download/TIS_RMS_Client_Setup.exe"
+          class="mt-6 flex items-center justify-center gap-2.5 rounded-xl bg-[#16a34a] px-5 py-4 text-base font-semibold text-white hover:bg-[#15803d] transition shadow-lg shadow-[#16a34a]/20"
+        >
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Download for Windows
+        </a>
       </div>
 
-      <!-- Card 2: Android Universal APK -->
-      <div class="group relative flex flex-col justify-between rounded-2xl border border-[#23412f] bg-[#112017]/90 p-6 transition hover:border-[#16a34a] hover:bg-[#15271d]">
-        <div>
-          <div class="flex items-center justify-between">
-            <span class="font-display font-bold text-sm text-[#4ade80]">Android Mobile</span>
-            <span class="rounded bg-emerald-500/10 px-2.5 py-0.5 text-[10px] font-mono font-semibold text-[#4ade80] border border-emerald-500/20">
-              Universal Build
-            </span>
-          </div>
-
-          <h3 class="mt-4 font-display text-lg font-bold text-white">Android Mobile Client</h3>
-          <p class="mt-1 text-xs text-emerald-400 font-mono">TIS_RMS_Android_Universal.apk</p>
-          
-          <p class="mt-3 text-xs text-slate-300 leading-relaxed">
-            Universal Android APK for educators. Features MLKit camera document scanning, offline cache, and instant document upload to the local school database.
-          </p>
-
-          <div class="mt-5 space-y-1.5 text-xs text-slate-400 font-mono">
-            <div>— Android 8.0+ (ARM64 & x86_64)</div>
-            <div>— MLKit Camera Scanner</div>
-          </div>
+      <!-- Android Card -->
+      <div class="flex flex-col rounded-2xl border border-white/8 bg-white/3 p-8">
+        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-[#4ade80]/10 border border-[#4ade80]/15">
+          <svg class="h-7 w-7 text-[#4ade80]" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.523 15.341a1 1 0 01-1 1H7.477a1 1 0 01-1-1V8.659a1 1 0 011-1h9.046a1 1 0 011 1v6.682zM14.56 3.239l1.32-2.286a.25.25 0 00-.433-.25l-1.337 2.314A7.966 7.966 0 0012 2.659a7.966 7.966 0 00-2.11.358L8.553.703a.25.25 0 00-.433.25l1.32 2.286A8.02 8.02 0 004 9.659v.5h16v-.5a8.02 8.02 0 00-5.44-6.42zM9.5 7.659a.75.75 0 110-1.5.75.75 0 010 1.5zm5 0a.75.75 0 110-1.5.75.75 0 010 1.5zM4 21.659a2 2 0 002 2h.5v-8.5H4v6.5zm13.5 2a2 2 0 002-2v-6.5h-2.5v8.5h.5zM6.477 22.659H17.523V13.5H6.477v9.159z"/>
+          </svg>
         </div>
 
-        <div class="mt-6">
-          <a
-            href="https://github.com/ssbg04/TIS_RMS/releases/download/v1.0.0/TIS_RMS_Android_Universal.apk"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-center rounded-xl bg-[#16271c] py-3 text-xs font-semibold text-white transition hover:bg-[#1d3525] border border-[#23412f]"
-          >
-            Download APK (.apk)
-          </a>
-        </div>
-      </div>
+        <h3 class="font-display text-xl font-bold text-white">Android</h3>
+        <p class="mt-2 text-base text-slate-400 leading-relaxed flex-1">
+          Use your phone to scan paper documents. The app reads student details automatically — no Play Store needed.
+        </p>
+        <p class="mt-3 text-sm text-slate-500">Android 8.0+ · <span id="apk-release-size">{apkAssetSize}</span></p>
 
-      <!-- Card 3: Backend Windows Service Setup -->
-      <div class="group relative flex flex-col justify-between rounded-2xl border border-[#23412f] bg-[#112017]/90 p-6 transition hover:border-[#16a34a] hover:bg-[#15271d] md:col-span-2 lg:col-span-1">
-        <div>
-          <div class="flex items-center justify-between">
-            <span class="font-display font-bold text-sm text-amber-400">Campus Server</span>
-            <span class="rounded bg-amber-500/15 px-2.5 py-0.5 text-[10px] font-mono font-semibold text-amber-300 border border-amber-500/30">
-              Campus Server
-            </span>
-          </div>
-
-          <h3 class="mt-4 font-display text-lg font-bold text-white">Backend School Server</h3>
-          <p class="mt-1 text-xs text-amber-400 font-mono">Node.js Express Campus Daemon</p>
-          
-          <p class="mt-3 text-xs text-slate-300 leading-relaxed">
-            Run the Node backend continuously on your school server PC via NSSM background service — accessible across faculty Wi-Fi.
-          </p>
-
-          <div class="mt-4 rounded-xl border border-[#1f3627] bg-[#09110c] p-3 font-mono text-[11px] text-[#4ade80] space-y-1">
-            <div>npm run service:install</div>
-            <div>npm run service:start</div>
-            <div class="text-slate-500">npm run service:status</div>
-          </div>
-        </div>
-
-        <div class="mt-6">
-          <a
-            href="https://github.com/ssbg04/TIS_RMS"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-center rounded-xl bg-[#16271c] py-3 text-xs font-semibold text-white transition hover:bg-[#1d3525] border border-[#23412f]"
-          >
-            View Source on GitHub
-          </a>
-        </div>
+        <a
+          id="apk-download-btn"
+          href="https://github.com/ssbg04/TIS_RMS/releases/latest/download/TIS_RMS_Android_Universal.apk"
+          class="mt-6 flex items-center justify-center gap-2.5 rounded-xl border border-white/12 bg-white/6 px-5 py-4 text-base font-semibold text-white hover:bg-white/10 transition"
+        >
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Download for Android
+        </a>
       </div>
 
     </div>
+
+    <!-- IT Admin / Server note -->
+    <div class="mt-6 rounded-2xl border border-white/6 bg-white/2 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div>
+        <p class="text-sm font-semibold text-slate-300">For IT Admins — Campus Server Setup</p>
+        <p class="mt-1 text-sm text-slate-500">The backend server runs on Node.js on a designated school PC. Visit GitHub for setup instructions.</p>
+      </div>
+      <a
+        href="https://github.com/ssbg04/TIS_RMS"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="shrink-0 inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-white/10 hover:text-white transition"
+      >
+        <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+        </svg>
+        View on GitHub
+      </a>
+    </div>
+
+    <!-- Android install note -->
+    <p class="mt-6 text-center text-sm text-slate-600">
+      For Android: enable <strong class="text-slate-400">Install unknown apps</strong> in your device settings before installing the APK.
+    </p>
 
   </div>
 </section>
+
+<script>
+  async function updateReleaseMetadata() {
+    try {
+      const response = await fetch("https://api.github.com/repos/ssbg04/TIS_RMS/releases/latest");
+      if (!response.ok) return;
+      const release = await response.json();
+
+      const tagName = release.tag_name || "";
+      const publishedAt = release.published_at
+        ? new Date(release.published_at).toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric"
+          })
+        : "";
+
+      const winAsset = release.assets?.find(
+        (a: any) => a.name === "TIS_RMS_Client_Setup.exe" || a.name.endsWith(".exe")
+      );
+      const apkAsset = release.assets?.find(
+        (a: any) => a.name === "TIS_RMS_Android_Universal.apk" || a.name.endsWith(".apk")
+      );
+
+      const versionLabel = document.getElementById("release-version-label");
+      if (versionLabel && tagName) versionLabel.textContent = tagName;
+      const dateLabel = document.getElementById("release-date-label");
+      if (dateLabel && publishedAt) dateLabel.textContent = publishedAt;
+
+      if (winAsset) {
+        const winSize = document.getElementById("win-release-size");
+        if (winSize) winSize.textContent = `${(winAsset.size / (1024 * 1024)).toFixed(1)} MB`;
+        const winBtn = document.getElementById("win-download-btn") as HTMLAnchorElement | null;
+        if (winBtn && winAsset.browser_download_url) winBtn.href = winAsset.browser_download_url;
+      }
+
+      if (apkAsset) {
+        const apkSize = document.getElementById("apk-release-size");
+        if (apkSize) apkSize.textContent = `${(apkAsset.size / (1024 * 1024)).toFixed(1)} MB`;
+        const apkBtn = document.getElementById("apk-download-btn") as HTMLAnchorElement | null;
+        if (apkBtn && apkAsset.browser_download_url) apkBtn.href = apkAsset.browser_download_url;
+      }
+
+      const notesLinks = document.querySelectorAll<HTMLAnchorElement>(".github-release-notes-link");
+      notesLinks.forEach((link) => {
+        if (release.html_url) link.href = release.html_url;
+      });
+    } catch (err) {
+      console.warn("Using fallback latest release download URLs:", err);
+    }
+  }
+
+  if (typeof window !== "undefined") {
+    updateReleaseMetadata();
+  }
+</script>

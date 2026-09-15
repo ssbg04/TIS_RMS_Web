@@ -1,89 +1,74 @@
 ---
-// Footer component - Talisay Integrated School Record Management System
+// Footer component - Talisay Integrated School RMS
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-[#070e0a] border-t border-[#1f3627] text-slate-400 text-xs py-14">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    
-    <div class="grid gap-10 md:grid-cols-12 pb-12 border-b border-[#172b1e]">
-      
-      <!-- Brand & One Sentence Summary -->
-      <div class="md:col-span-5 space-y-4">
+<footer class="bg-[#070e0a] border-t border-white/5 text-slate-400 py-12">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+
+    <div class="grid gap-10 md:grid-cols-3 pb-10 border-b border-white/5">
+
+      <!-- Brand -->
+      <div class="space-y-3">
         <div class="flex items-center gap-3">
           <img
             src="/tis_logo.png"
-            alt="Talisay Integrated School Seal"
-            class="h-10 w-10 object-contain drop-shadow-[0_2px_8px_rgba(22,163,74,0.3)]"
+            alt="Talisay Integrated School"
+            class="h-9 w-9 object-contain"
           />
           <div>
-            <span class="font-display text-base font-bold text-white tracking-tight">TIS RMS</span>
-            <div class="text-[10px] text-amber-400 font-semibold tracking-wide">
-              Talisay Integrated School • Tiaong, Quezon
-            </div>
+            <div class="font-display text-base font-bold text-white">TIS RMS</div>
+            <div class="text-xs text-amber-400">Talisay Integrated School</div>
           </div>
         </div>
-
-        <p class="text-xs text-slate-300 leading-relaxed max-w-sm">
-          A client-server school Record Management System designed for <strong>Talisay Integrated School in Tiaong, Quezon, Philippines</strong>. Dedicated to managing and digitizing historical student records from old documents dated <strong>2021 onwards</strong>. Utilizes SF-10 and SF-9 forms for efficient basic student info registration with zero grade tracking.
+        <p class="text-sm text-slate-500 leading-relaxed max-w-xs">
+          A records management system for Talisay Integrated School in Tiaong, Quezon, Philippines. Designed to digitize and manage student records from old documents dated 2021 onwards.
         </p>
-
-        <div class="inline-flex items-center gap-2 rounded-lg bg-[#112017] px-3 py-1.5 font-mono text-[11px] text-slate-400 border border-[#23412f]">
-          <span>App Identity:</span>
-          <span class="text-[#4ade80] font-semibold">plsp.bsit3dsb.tisrms</span>
-        </div>
       </div>
 
-      <!-- Navigation Links -->
-      <div class="md:col-span-3 space-y-3">
-        <h4 class="font-display text-xs font-bold uppercase tracking-wider text-slate-200">System Navigation</h4>
-        <ul class="space-y-2">
-          <li><a href="#showcase" class="hover:text-[#4ade80] transition">App Showcase</a></li>
-          <li><a href="#school-forms" class="hover:text-[#4ade80] transition">SF-10 & SF-9 Records</a></li>
-          <li><a href="#ocr-pipeline" class="hover:text-[#4ade80] transition">OCR Document Engine</a></li>
-          <li><a href="#features" class="hover:text-[#4ade80] transition">System Features</a></li>
-          <li><a href="#architecture" class="hover:text-[#4ade80] transition">Campus LAN Offline Mode</a></li>
-          <li><a href="#tech-stack" class="hover:text-[#4ade80] transition">System Architecture</a></li>
+      <!-- Navigation -->
+      <div class="space-y-3">
+        <h4 class="text-sm font-semibold text-slate-200">Navigation</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#showcase" class="hover:text-white transition">App Preview</a></li>
+          <li><a href="#school-forms" class="hover:text-white transition">School Forms</a></li>
+          <li><a href="#ocr-pipeline" class="hover:text-white transition">Document Scanning</a></li>
+          <li><a href="#features" class="hover:text-white transition">Features</a></li>
+          <li><a href="#downloads" class="hover:text-white transition">Downloads</a></li>
         </ul>
       </div>
 
-      <!-- Release & Distribution Links -->
-      <div class="md:col-span-4 space-y-3">
-        <h4 class="font-display text-xs font-bold uppercase tracking-wider text-slate-200">Release & Distribution</h4>
-        <ul class="space-y-2">
+      <!-- Downloads -->
+      <div class="space-y-3">
+        <h4 class="text-sm font-semibold text-slate-200">Downloads</h4>
+        <ul class="space-y-2 text-sm">
           <li>
-            <a href="https://github.com/ssbg04/TIS_RMS/releases/latest" target="_blank" rel="noopener noreferrer" class="hover:text-[#4ade80] transition">
-              Windows Desktop Installer (.exe)
+            <a href="https://github.com/ssbg04/TIS_RMS/releases/latest/download/TIS_RMS_Client_Setup.exe" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center gap-1.5">
+              Windows App (.exe)
+              <span class="text-xs text-[#4ade80]">Latest</span>
             </a>
           </li>
           <li>
-            <a href="https://github.com/ssbg04/TIS_RMS/releases/download/v1.0.0/TIS_RMS_Android_Universal.apk" target="_blank" rel="noopener noreferrer" class="hover:text-[#4ade80] transition">
-              Android Universal APK (.apk)
+            <a href="https://github.com/ssbg04/TIS_RMS/releases/latest/download/TIS_RMS_Android_Universal.apk" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center gap-1.5">
+              Android App (.apk)
+              <span class="text-xs text-[#4ade80]">Latest</span>
             </a>
           </li>
           <li>
-            <a href="https://github.com/ssbg04/TIS_RMS" target="_blank" rel="noopener noreferrer" class="hover:text-[#4ade80] transition">
-              GitHub Repository (ssbg04/TIS_RMS)
-            </a>
+            <a href="https://github.com/ssbg04/TIS_RMS/releases/latest" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Release Notes</a>
+          </li>
+          <li>
+            <a href="https://github.com/ssbg04/TIS_RMS" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">GitHub Repository</a>
           </li>
         </ul>
-
-        <div class="pt-2">
-          <div class="text-[11px] text-slate-400">Developed by <strong class="text-white">BSIT3DSB</strong> for Talisay Integrated School</div>
-        </div>
       </div>
 
     </div>
 
-    <!-- Bottom Bar -->
-    <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
-      <div>
-        © {currentYear} Talisay Integrated School — Record Management System (TIS RMS). Tiaong, Quezon, Philippines.
-      </div>
-      <div class="flex items-center gap-6">
-        <a href="#downloads" class="hover:text-white transition">Downloads</a>
-        <a href="https://github.com/ssbg04/TIS_RMS" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">GitHub</a>
-      </div>
+    <!-- Bottom -->
+    <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
+      <div>© {currentYear} Talisay Integrated School — TIS RMS. Tiaong, Quezon, Philippines.</div>
+      <div>Developed by <strong class="text-slate-400">BSIT3DSB</strong></div>
     </div>
 
   </div>

@@ -1,132 +1,96 @@
 ---
-// AppShowcase component - Highlights the real Flutter desktop client
+// AppShowcase component - Actual app screenshots
 const showcaseTabs = [
   {
     id: "dashboard",
-    title: "Dashboard Overview",
-    tagline: "Overview of student records, basic information statistics, and digitized historical documents from 2021 onwards.",
+    title: "Dashboard",
+    tagline: "A quick overview of all archived student records and statistics.",
     image: "/screenshots/dashboard.webp",
-    badge: "Archives (2021+)",
   },
   {
     id: "students",
     title: "Student Directory",
-    tagline: "Search learners by 12-digit LRN, view basic profile information, and register student data via SF-10 and SF-9 forms.",
+    tagline: "Search any student by name or LRN and view their basic profile.",
     image: "/screenshots/students.webp",
-    badge: "Basic Info Directory",
   },
   {
     id: "documents",
-    title: "Document Vault & Folders",
-    tagline: "Organize archived student folders (2021 onwards), view historical documents, and inspect records with instant PDF preview.",
+    title: "Document Vault",
+    tagline: "Browse and preview all archived student folders and documents.",
     image: "/screenshots/documents.webp",
-    badge: "Document Archival",
   },
   {
     id: "reports",
-    title: "Archive Statistics Board",
-    tagline: "Historical student records overview tracking 4Ps learner markers and audit-ready document summaries.",
+    title: "Records Summary",
+    tagline: "View totals and statistics for archived records and 4Ps classifications.",
     image: "/screenshots/reports.webp",
-    badge: "Records Summary",
   },
 ];
 ---
 
-<section id="showcase" class="relative bg-[#09110c] py-24 text-white overflow-hidden border-t border-[#1f3627]">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    
-    <!-- Section Title Header -->
-    <div class="mx-auto max-w-3xl text-center">
-      <div class="inline-flex items-center gap-2 rounded-full border border-[#2a4c37] bg-[#112017] px-4 py-1 text-xs font-semibold text-[#4ade80]">
-        <img src="/tis_logo.png" alt="TIS" class="h-3.5 w-3.5 object-contain" />
-        <span>Live System Interface</span>
-      </div>
-      <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-white sm:text-5xl">
-        Designed for Talisay Integrated School.
+<section id="showcase" class="relative bg-[#09110c] py-24 text-white border-t border-white/5">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+
+    <!-- Header -->
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="text-sm font-semibold text-[#4ade80] uppercase tracking-widest mb-3">App Preview</p>
+      <h2 class="font-display text-3xl font-bold text-white sm:text-4xl">
+        See the app in action.
       </h2>
-      <p class="mt-4 text-base text-slate-300 sm:text-lg">
-        Actual interface screenshots from the desktop client built specifically to manage and register student records from old documents dated 2021 onwards.
+      <p class="mt-4 text-base text-slate-400 leading-relaxed">
+        Real screenshots from the desktop app built specifically for Talisay Integrated School.
       </p>
     </div>
 
-    <!-- Tab Selection Buttons -->
-    <div class="mt-10 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5">
+    <!-- Tab Buttons -->
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-2">
       {showcaseTabs.map((tab, idx) => (
         <button
           type="button"
           data-tab={tab.id}
-          class={`tab-btn relative flex items-center gap-2.5 rounded-xl px-4 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 border ${
+          class={`tab-btn rounded-lg px-4 py-2 text-sm font-medium transition-all border ${
             idx === 0
-              ? "bg-[#16a34a] text-white border-[#16a34a] shadow-md shadow-[#16a34a]/20"
-              : "bg-[#112017] text-slate-300 border-[#23412f] hover:bg-[#162a1d] hover:text-white"
+              ? "bg-[#16a34a] text-white border-[#16a34a]"
+              : "bg-transparent text-slate-400 border-white/10 hover:text-white hover:border-white/20"
           }`}
         >
-          <span>{tab.title}</span>
-          <span class="rounded bg-black/30 px-2 py-0.5 text-[10px] uppercase font-bold text-emerald-300">
-            {tab.badge}
-          </span>
+          {tab.title}
         </button>
       ))}
     </div>
 
-    <!-- Interactive Window Container with Authentic App Titlebar -->
-    <div class="mt-10 overflow-hidden rounded-2xl border border-[#23412f] bg-[#0c1610] shadow-2xl shadow-black/90">
-      
-      <!-- Top Window Header Bar matching Windows Titlebar in Screenshots -->
-      <div class="flex items-center justify-between border-b border-[#1f3627] bg-[#15803d] px-4 py-2.5">
-        <div class="flex items-center gap-2.5">
-          <img src="/tis_logo.png" alt="TIS Seal" class="h-4 w-4 object-contain" />
-          <span class="text-xs font-semibold text-white tracking-wide">
-            TIS Record Management System
-          </span>
-        </div>
+    <!-- Screenshot Window -->
+    <div class="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-[#0c1610] shadow-2xl shadow-black/60">
 
-        <div class="flex items-center gap-2 rounded-lg bg-black/25 px-3 py-1 text-xs font-mono text-emerald-100">
-          <span id="tab-url">tis_rms://app/dashboard</span>
-        </div>
-
-        <!-- Window Controls -->
-        <div class="flex items-center gap-2 text-white/80">
-          <span class="h-2.5 w-2.5 rounded-full bg-white/40"></span>
-          <span class="h-2.5 w-2.5 rounded-full bg-white/40"></span>
-          <span class="h-2.5 w-2.5 rounded-full bg-white/40"></span>
-        </div>
+      <!-- Simple window titlebar -->
+      <div class="flex items-center gap-2.5 border-b border-white/5 bg-[#15803d] px-4 py-2.5">
+        <img src="/tis_logo.png" alt="TIS" class="h-4 w-4 object-contain" />
+        <span class="text-sm font-semibold text-white">TIS Record Management System</span>
       </div>
 
-      <!-- Screenshot Preview Area -->
-      <div class="relative min-h-[380px] sm:min-h-[520px] bg-[#09110c] p-2 sm:p-4">
+      <!-- Screenshot Area -->
+      <div class="relative bg-[#09110c] p-3 sm:p-4">
         {showcaseTabs.map((tab, idx) => (
           <div
             id={`tab-content-${tab.id}`}
-            class={`tab-content transition-all duration-300 ${idx === 0 ? "block" : "hidden"}`}
+            class={`tab-content ${idx === 0 ? "block" : "hidden"}`}
           >
-            <div class="group relative overflow-hidden rounded-xl border border-[#23412f] bg-[#0c1610]">
+            <div class="overflow-hidden rounded-xl border border-white/8">
               <img
                 src={tab.image}
-                alt={`TIS_RMS ${tab.title} - Talisay Integrated School`}
+                alt={`TIS RMS ${tab.title}`}
                 loading="lazy"
                 class="w-full object-cover aspect-[16/10]"
               />
-
-              <!-- Overlay description bar -->
-              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#09110c] via-[#09110c]/90 to-transparent p-4 sm:p-6">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                  <div>
-                    <h3 class="font-display text-lg font-bold text-white sm:text-xl">{tab.title}</h3>
-                    <p class="text-xs sm:text-sm text-slate-300 max-w-2xl mt-0.5">{tab.tagline}</p>
-                  </div>
-                  <div class="shrink-0">
-                    <span class="rounded-md border border-[#1f3627] bg-[#112017] px-3 py-1 text-xs font-mono text-[#4ade80]">
-                      System View
-                    </span>
-                  </div>
-                </div>
-              </div>
+            </div>
+            <!-- Caption -->
+            <div class="mt-4 text-center">
+              <h3 class="font-display text-lg font-semibold text-white">{tab.title}</h3>
+              <p class="text-sm text-slate-400 mt-1">{tab.tagline}</p>
             </div>
           </div>
         ))}
       </div>
-
     </div>
 
   </div>
@@ -135,22 +99,19 @@ const showcaseTabs = [
 <script>
   const buttons = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
   const contents = document.querySelectorAll<HTMLElement>('.tab-content');
-  const urlSpan = document.getElementById('tab-url');
 
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
       const target = btn.dataset.tab;
 
-      // Update button styles
       buttons.forEach((b) => {
-        b.classList.remove('bg-[#16a34a]', 'text-white', 'border-[#16a34a]', 'shadow-lg', 'shadow-[#16a34a]/30');
-        b.classList.add('bg-[#112017]', 'text-slate-300', 'border-[#23412f]');
+        b.classList.remove('bg-[#16a34a]', 'text-white', 'border-[#16a34a]');
+        b.classList.add('bg-transparent', 'text-slate-400', 'border-white/10');
       });
 
-      btn.classList.remove('bg-[#112017]', 'text-slate-300', 'border-[#23412f]');
-      btn.classList.add('bg-[#16a34a]', 'text-white', 'border-[#16a34a]', 'shadow-lg', 'shadow-[#16a34a]/30');
+      btn.classList.remove('bg-transparent', 'text-slate-400', 'border-white/10');
+      btn.classList.add('bg-[#16a34a]', 'text-white', 'border-[#16a34a]');
 
-      // Update contents
       contents.forEach((content) => {
         if (content.id === `tab-content-${target}`) {
           content.classList.remove('hidden');
@@ -160,10 +121,6 @@ const showcaseTabs = [
           content.classList.remove('block');
         }
       });
-
-      if (urlSpan) {
-        urlSpan.textContent = `tis_rms://app/${target}`;
-      }
     });
   });
 </script>
