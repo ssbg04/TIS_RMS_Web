@@ -5,23 +5,26 @@
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: 'Outfit', sans-serif;
 
-  --bg-base: #09110c;
-  --bg-surface: #0e1a12;
-  --bg-card: #112017;
+  --bg-base: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --bg-subtle: #f1f5f9;
 
-  --border: #1f3627;
-  --border-strong: #2a4c37;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
 
-  --green: #16a34a;
-  --green-light: #22c55e;
-  --green-glow: #4ade80;
-  --green-hover: #15803d;
+  --green: #15803d;
+  --green-light: #16a34a;
+  --green-soft: #ecfdf5;
+  --green-pill-border: #bbf7d0;
+  --green-hover: #166534;
 
-  --gold: #f59e0b;
+  --gold: #d97706;
 
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-subtle: #64748b;
+  --text-main: #0f172a;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
 }
 
 html {
@@ -29,14 +32,14 @@ html {
   font-family: var(--font-sans);
   font-size: 16px;
   background-color: var(--bg-base);
-  color: var(--text-main);
-  color-scheme: dark;
+  color: var(--text-body);
+  color-scheme: light;
 }
 
 body {
   margin: 0;
   background-color: var(--bg-base);
-  color: var(--text-main);
+  color: var(--text-body);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   line-height: 1.6;
@@ -45,6 +48,7 @@ body {
 h1, h2, h3, h4, .font-display {
   font-family: var(--font-display);
   line-height: 1.2;
+  color: var(--text-main);
 }
 
 ::selection {
@@ -52,15 +56,30 @@ h1, h2, h3, h4, .font-display {
   color: #ffffff;
 }
 
-/* Glass nav */
+/* Watermark school background effect from app screenshot */
+.school-watermark-bg {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(22, 163, 74, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(22, 163, 74, 0.03) 0%, transparent 50%);
+}
+
+.school-crest-watermark {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.04;
+  user-select: none;
+}
+
+/* Glass nav for light mode */
 .glass-nav {
-  background: rgba(9, 17, 12, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid #e2e8f0;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-base); }
-::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--green); }

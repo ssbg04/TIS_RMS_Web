@@ -28,30 +28,32 @@ const showcaseTabs = [
 ];
 ---
 
-<section id="showcase" class="relative bg-[#09110c] py-24 text-white border-t border-white/5">
+<section id="showcase" class="relative bg-white py-20 border-t border-slate-200">
   <div class="mx-auto max-w-6xl px-5 sm:px-8">
 
     <!-- Header -->
     <div class="mx-auto max-w-2xl text-center">
-      <p class="text-sm font-semibold text-[#4ade80] uppercase tracking-widest mb-3">App Preview</p>
-      <h2 class="font-display text-3xl font-bold text-white sm:text-4xl">
+      <div class="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-[#ecfdf5] px-3.5 py-1 text-xs font-semibold text-[#15803d] uppercase tracking-wider mb-3.5">
+        App Preview
+      </div>
+      <h2 class="font-display text-3xl font-bold text-slate-900 sm:text-4xl">
         See the app in action.
       </h2>
-      <p class="mt-4 text-base text-slate-400 leading-relaxed">
+      <p class="mt-3 text-base text-slate-600 leading-relaxed">
         Real screenshots from the desktop app built specifically for Talisay Integrated School.
       </p>
     </div>
 
     <!-- Tab Buttons -->
-    <div class="mt-10 flex flex-wrap items-center justify-center gap-2">
+    <div class="mt-9 flex flex-wrap items-center justify-center gap-2">
       {showcaseTabs.map((tab, idx) => (
         <button
           type="button"
           data-tab={tab.id}
-          class={`tab-btn rounded-lg px-4 py-2 text-sm font-medium transition-all border ${
+          class={`tab-btn rounded-xl px-4 py-2 text-sm font-semibold transition-all border shadow-xs ${
             idx === 0
-              ? "bg-[#16a34a] text-white border-[#16a34a]"
-              : "bg-transparent text-slate-400 border-white/10 hover:text-white hover:border-white/20"
+              ? "bg-[#15803d] text-white border-[#15803d] shadow-sm"
+              : "bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:border-slate-300"
           }`}
         >
           {tab.title}
@@ -59,34 +61,42 @@ const showcaseTabs = [
       ))}
     </div>
 
-    <!-- Screenshot Window -->
-    <div class="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-[#0c1610] shadow-2xl shadow-black/60">
+    <!-- Screenshot Window (Authentic Desktop Client Window Styling) -->
+    <div class="mt-8 overflow-hidden rounded-2xl border border-slate-300/80 bg-white shadow-xl">
 
-      <!-- Simple window titlebar -->
-      <div class="flex items-center gap-2.5 border-b border-white/5 bg-[#15803d] px-4 py-2.5">
-        <img src="/tis_logo.png" alt="TIS" class="h-4 w-4 object-contain" />
-        <span class="text-sm font-semibold text-white">TIS Record Management System</span>
+      <!-- Desktop Client Titlebar matching app screenshot -->
+      <div class="flex items-center justify-between border-b border-emerald-800/40 bg-[#15803d] px-4 py-2.5 select-none">
+        <div class="flex items-center gap-2.5">
+          <img src="/tis_logo.png" alt="TIS Logo" class="h-4.5 w-4.5 object-contain" width="18" height="18" />
+          <span class="text-xs sm:text-sm font-medium text-white tracking-wide">TIS Record Management System</span>
+        </div>
+        <!-- Window minimize / maximize / close icons matching desktop app -->
+        <div class="flex items-center gap-4 text-white/80 text-xs">
+          <span class="hover:text-white cursor-default transition">─</span>
+          <span class="hover:text-white cursor-default transition">□</span>
+          <span class="hover:text-white cursor-default transition">✕</span>
+        </div>
       </div>
 
       <!-- Screenshot Area -->
-      <div class="relative bg-[#09110c] p-3 sm:p-4">
+      <div class="relative bg-slate-100/70 p-2 sm:p-4">
         {showcaseTabs.map((tab, idx) => (
           <div
             id={`tab-content-${tab.id}`}
             class={`tab-content ${idx === 0 ? "block" : "hidden"}`}
           >
-            <div class="overflow-hidden rounded-xl border border-white/8">
+            <div class="overflow-hidden rounded-xl border border-slate-200 shadow-xs bg-white">
               <img
                 src={tab.image}
                 alt={`TIS RMS ${tab.title}`}
                 loading="lazy"
-                class="w-full object-cover aspect-[16/10]"
+                class="w-full object-cover aspect-[16/9.5]"
               />
             </div>
             <!-- Caption -->
-            <div class="mt-4 text-center">
-              <h3 class="font-display text-lg font-semibold text-white">{tab.title}</h3>
-              <p class="text-sm text-slate-400 mt-1">{tab.tagline}</p>
+            <div class="mt-4 text-center pb-2">
+              <h3 class="font-display text-lg font-bold text-slate-900">{tab.title}</h3>
+              <p class="text-sm text-slate-600 mt-0.5">{tab.tagline}</p>
             </div>
           </div>
         ))}
@@ -105,12 +115,12 @@ const showcaseTabs = [
       const target = btn.dataset.tab;
 
       buttons.forEach((b) => {
-        b.classList.remove('bg-[#16a34a]', 'text-white', 'border-[#16a34a]');
-        b.classList.add('bg-transparent', 'text-slate-400', 'border-white/10');
+        b.classList.remove('bg-[#15803d]', 'text-white', 'border-[#15803d]', 'shadow-sm');
+        b.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
       });
 
-      btn.classList.remove('bg-transparent', 'text-slate-400', 'border-white/10');
-      btn.classList.add('bg-[#16a34a]', 'text-white', 'border-[#16a34a]');
+      btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+      btn.classList.add('bg-[#15803d]', 'text-white', 'border-[#15803d]', 'shadow-sm');
 
       contents.forEach((content) => {
         if (content.id === `tab-content-${target}`) {

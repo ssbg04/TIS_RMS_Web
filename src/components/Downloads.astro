@@ -1,135 +1,252 @@
 ---
 // Downloads component - Official installers for Talisay Integrated School
-let latestReleaseTag = "v1.0.10";
-let winAssetSize = "19.6 MB";
-let apkAssetSize = "83.4 MB";
+// Default asset sizes & URLs (v1.0.27 latest release)
+let latestReleaseTag = "v1.0.27";
 let publishedDateStr = "Latest Release";
 
-try {
-  const res = await fetch("https://api.github.com/repos/ssbg04/TIS_RMS/releases/latest", {
-    headers: { "User-Agent": "TIS-RMS-Web" }
-  });
-  if (res.ok) {
-    const data = await res.json();
-    if (data.tag_name) latestReleaseTag = data.tag_name;
-    if (data.published_at) {
-      publishedDateStr = new Date(data.published_at).toLocaleDateString("en-US", {
-        month: "long",
-        day: "numeric",
-        year: "numeric"
-      });
-    }
-    const winAsset = data.assets?.find((a: any) => a.name === "TIS_RMS_Client_Setup.exe" || a.name.endsWith(".exe"));
-    const apkAsset = data.assets?.find((a: any) => a.name === "TIS_RMS_Android_Universal.apk" || a.name.endsWith(".apk"));
-    if (winAsset) winAssetSize = `${(winAsset.size / (1024 * 1024)).toFixed(1)} MB`;
-    if (apkAsset) apkAssetSize = `${(apkAsset.size / (1024 * 1024)).toFixed(1)} MB`;
-  }
-} catch (e) {
-  // Gracefully fallback to defaults
-}
+let winAssetSize = "18.2 MB";
+let winDownloadUrl = "https://github.com/ssbg04/TIS_RMS/releases/download/v1.0.27/TIS_RMS_Client_Setup_v1.0.27.exe";
+
+let apkUniversalSize = "75.4 MB";
+let apkUniversalUrl = "https://github.com/ssbg04/TIS_RMS/releases/download/v1.0.27/TIS_RMS_Universal_v1.0.27.apk";
+
+let apk64Size = "29.4 MB";
+let apk64Url = "https://github.com/ssbg04/TIS_RMS/releases/download/v1.0.27/TIS_RMS_64_v1.0.27.apk";
+
+let apk32Size = "27.4 MB";
+let apk32Url = "https://github.com/ssbg04/TIS_RMS/releases/download/v1.0.27/TIS_RMS_32bit_v1.0.27.apk";
+
+let releaseHtmlUrl = "https://github.com/ssbg04/TIS_RMS/releases/latest";
 ---
 
-<section id="downloads" class="bg-[#09110c] py-24 text-white border-t border-white/5">
-  <div class="mx-auto max-w-5xl px-5 sm:px-8">
+<section id="downloads" class="relative bg-white py-24 border-t border-slate-200">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
 
     <!-- Header -->
     <div class="text-center mb-14">
-      <p class="text-sm font-semibold text-[#4ade80] uppercase tracking-widest mb-3">Downloads</p>
-      <h2 class="font-display text-3xl font-bold text-white sm:text-4xl">
-        Get the TIS RMS App
+      <div class="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-[#ecfdf5] px-3.5 py-1 text-xs font-semibold text-[#15803d] uppercase tracking-wider mb-3.5">
+        Official Installers
+      </div>
+      <h2 class="font-display text-3xl font-bold text-slate-900 sm:text-4xl">
+        Download TIS RMS
       </h2>
-      <p class="mt-4 text-base text-slate-400 max-w-lg mx-auto leading-relaxed">
-        Free for all Talisay Integrated School staff. Available for Windows and Android.
+      <p class="mt-3 text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
+        Free for all Talisay Integrated School staff. Available for Windows campus workstations and Android mobile devices.
       </p>
-      <div class="mt-4 flex items-center justify-center gap-2 text-sm text-slate-500">
-        <span id="release-version-label" class="text-slate-300 font-medium">{latestReleaseTag}</span>
-        <span>·</span>
+      <div class="mt-4 flex flex-wrap items-center justify-center gap-2 text-sm text-slate-500">
+        <span id="release-version-label" class="inline-flex items-center rounded-md bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-[#15803d] border border-emerald-200">
+          {latestReleaseTag}
+        </span>
+        <span class="text-slate-300">·</span>
         <span id="release-date-label">{publishedDateStr}</span>
-        <span>·</span>
-        <a href="https://github.com/ssbg04/TIS_RMS/releases/latest" target="_blank" rel="noopener noreferrer" class="github-release-notes-link text-[#4ade80] hover:underline">Release Notes →</a>
+        <span class="text-slate-300">·</span>
+        <a href={releaseHtmlUrl} target="_blank" rel="noopener noreferrer" class="github-release-notes-link font-medium text-[#15803d] hover:underline">
+          Release Notes →
+        </a>
       </div>
     </div>
 
-    <!-- Download Cards -->
-    <div class="grid gap-5 sm:grid-cols-2">
+    <!-- Download Grid -->
+    <div class="grid gap-6 lg:grid-cols-12">
 
-      <!-- Windows Card -->
-      <div class="flex flex-col rounded-2xl border border-white/8 bg-white/3 p-8">
-        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-500/10 border border-blue-500/15">
-          <svg class="h-7 w-7 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.551H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
-          </svg>
+      <!-- Windows Card (lg:col-span-5) -->
+      <div class="lg:col-span-5 flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-xs hover:shadow-md transition">
+        <div>
+          <!-- Header icon & badge -->
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 border border-blue-100 text-blue-600 shadow-xs">
+              <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.551H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>
+              </svg>
+            </div>
+            <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+              Desktop Client
+            </span>
+          </div>
+
+          <h3 class="font-display text-2xl font-bold text-slate-900">Windows</h3>
+          <p class="mt-2.5 text-sm text-slate-600 leading-relaxed">
+            The complete management application for teachers and registrars. Includes student lookup, document directory, and automated SF-10 Excel export.
+          </p>
+
+          <!-- Specifications list -->
+          <div class="mt-6 rounded-xl border border-slate-200/80 bg-slate-50/70 p-4 space-y-2 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-500">Compatibility</span>
+              <span class="font-semibold text-slate-800">Windows 10 / 11 (64-bit)</span>
+            </div>
+            <div class="flex items-center justify-between border-t border-slate-200/60 pt-2">
+              <span class="text-slate-500">Installer Type</span>
+              <span class="font-semibold text-slate-800">NSIS One-Click Setup (.exe)</span>
+            </div>
+            <div class="flex items-center justify-between border-t border-slate-200/60 pt-2">
+              <span class="text-slate-500">Download Size</span>
+              <span id="win-release-size" class="font-bold text-[#15803d]">{winAssetSize}</span>
+            </div>
+          </div>
         </div>
 
-        <h3 class="font-display text-xl font-bold text-white">Windows</h3>
-        <p class="mt-2 text-base text-slate-400 leading-relaxed flex-1">
-          The main desktop app for teachers and registrars. One-click installer — works on your school network.
-        </p>
-        <p class="mt-3 text-sm text-slate-500">Windows 10 / 11 · <span id="win-release-size">{winAssetSize}</span></p>
-
-        <a
-          id="win-download-btn"
-          href="https://github.com/ssbg04/TIS_RMS/releases/latest/download/TIS_RMS_Client_Setup.exe"
-          class="mt-6 flex items-center justify-center gap-2.5 rounded-xl bg-[#16a34a] px-5 py-4 text-base font-semibold text-white hover:bg-[#15803d] transition shadow-lg shadow-[#16a34a]/20"
-        >
-          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-          </svg>
-          Download for Windows
-        </a>
+        <div class="mt-8">
+          <a
+            id="win-download-btn"
+            href={winDownloadUrl}
+            class="flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#15803d] px-5 py-3.5 text-base font-semibold text-white shadow-md shadow-[#15803d]/15 hover:bg-[#166534] transition"
+          >
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download for Windows
+          </a>
+          <p class="mt-2.5 text-center text-xs text-slate-500">
+            Works offline on school local Wi-Fi or wired network.
+          </p>
+        </div>
       </div>
 
-      <!-- Android Card -->
-      <div class="flex flex-col rounded-2xl border border-white/8 bg-white/3 p-8">
-        <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-[#4ade80]/10 border border-[#4ade80]/15">
-          <svg class="h-7 w-7 text-[#4ade80]" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.523 15.341a1 1 0 01-1 1H7.477a1 1 0 01-1-1V8.659a1 1 0 011-1h9.046a1 1 0 011 1v6.682zM14.56 3.239l1.32-2.286a.25.25 0 00-.433-.25l-1.337 2.314A7.966 7.966 0 0012 2.659a7.966 7.966 0 00-2.11.358L8.553.703a.25.25 0 00-.433.25l1.32 2.286A8.02 8.02 0 004 9.659v.5h16v-.5a8.02 8.02 0 00-5.44-6.42zM9.5 7.659a.75.75 0 110-1.5.75.75 0 010 1.5zm5 0a.75.75 0 110-1.5.75.75 0 010 1.5zM4 21.659a2 2 0 002 2h.5v-8.5H4v6.5zm13.5 2a2 2 0 002-2v-6.5h-2.5v8.5h.5zM6.477 22.659H17.523V13.5H6.477v9.159z"/>
-          </svg>
+      <!-- Android Hub Card (lg:col-span-7) -->
+      <div class="lg:col-span-7 flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-xs hover:shadow-md transition">
+        <div>
+          <!-- Header icon & badge -->
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#ecfdf5] border border-emerald-200 text-[#15803d] shadow-xs">
+              <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.523 15.341a1 1 0 01-1 1H7.477a1 1 0 01-1-1V8.659a1 1 0 011-1h9.046a1 1 0 011 1v6.682zM14.56 3.239l1.32-2.286a.25.25 0 00-.433-.25l-1.337 2.314A7.966 7.966 0 0012 2.659a7.966 7.966 0 00-2.11.358L8.553.703a.25.25 0 00-.433.25l1.32 2.286A8.02 8.02 0 004 9.659v.5h16v-.5a8.02 8.02 0 00-5.44-6.42zM9.5 7.659a.75.75 0 110-1.5.75.75 0 010 1.5zm5 0a.75.75 0 110-1.5.75.75 0 010 1.5zM4 21.659a2 2 0 002 2h.5v-8.5H4v6.5zm13.5 2a2 2 0 002-2v-6.5h-2.5v8.5h.5zM6.477 22.659H17.523V13.5H6.477v9.159z"/>
+              </svg>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="rounded-full bg-emerald-50 text-[#15803d] border border-emerald-200 px-3 py-1 text-xs font-semibold">
+                Android 8.0+
+              </span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+                Mobile Scanner
+              </span>
+            </div>
+          </div>
+
+          <h3 class="font-display text-2xl font-bold text-slate-900">Android APK Packages</h3>
+          <p class="mt-2.5 text-sm text-slate-600 leading-relaxed">
+            Scan paper SF-10 and SF-9 forms using your smartphone camera. Choose the package suited for your device:
+          </p>
+
+          <!-- 3 APK Packages -->
+          <div class="mt-5 space-y-3">
+
+            <!-- 1. Universal APK -->
+            <div class="rounded-xl border-2 border-[#15803d]/40 bg-[#ecfdf5]/50 p-4 transition hover:bg-[#ecfdf5]/80">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-slate-900 text-sm">Universal APK</span>
+                    <span class="rounded-md bg-[#15803d] text-white px-2 py-0.5 text-[11px] font-bold">Recommended</span>
+                  </div>
+                  <p class="text-xs text-slate-600 mt-1">
+                    Compatible with all Android phones (32-bit &amp; 64-bit). If unsure, pick this.
+                  </p>
+                  <p class="text-xs font-medium text-slate-500 mt-1">
+                    Size: <span id="apk-universal-size" class="font-bold text-[#15803d]">{apkUniversalSize}</span> · All architectures
+                  </p>
+                </div>
+                <a
+                  id="apk-universal-btn"
+                  href={apkUniversalUrl}
+                  class="shrink-0 inline-flex items-center justify-center gap-2 rounded-lg bg-[#15803d] px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-[#166534] transition"
+                >
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  Download Universal
+                </a>
+              </div>
+            </div>
+
+            <!-- 2. 64-bit APK -->
+            <div class="rounded-xl border border-slate-200/90 bg-slate-50/70 p-4 transition hover:bg-slate-50">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-slate-900 text-sm">64-bit APK</span>
+                    <span class="rounded-md bg-blue-50 text-blue-700 border border-blue-200 px-2 py-0.5 text-[11px] font-semibold">arm64-v8a</span>
+                  </div>
+                  <p class="text-xs text-slate-600 mt-1">
+                    Optimized for modern Android smartphones (2018+). Faster install, 60% smaller file.
+                  </p>
+                  <p class="text-xs font-medium text-slate-500 mt-1">
+                    Size: <span id="apk-64-size" class="font-bold text-slate-800">{apk64Size}</span> · 64-bit ARM
+                  </p>
+                </div>
+                <a
+                  id="apk-64-btn"
+                  href={apk64Url}
+                  class="shrink-0 inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-800 shadow-xs hover:bg-slate-50 hover:border-slate-400 transition"
+                >
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  Download 64-bit
+                </a>
+              </div>
+            </div>
+
+            <!-- 3. 32-bit APK -->
+            <div class="rounded-xl border border-slate-200/90 bg-slate-50/70 p-4 transition hover:bg-slate-50">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold text-slate-900 text-sm">32-bit APK</span>
+                    <span class="rounded-md bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 text-[11px] font-semibold">armeabi-v7a</span>
+                  </div>
+                  <p class="text-xs text-slate-600 mt-1">
+                    Tailored for older Android models or budget school handheld devices.
+                  </p>
+                  <p class="text-xs font-medium text-slate-500 mt-1">
+                    Size: <span id="apk-32-size" class="font-bold text-slate-800">{apk32Size}</span> · 32-bit ARM
+                  </p>
+                </div>
+                <a
+                  id="apk-32-btn"
+                  href={apk32Url}
+                  class="shrink-0 inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-800 shadow-xs hover:bg-slate-50 hover:border-slate-400 transition"
+                >
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  Download 32-bit
+                </a>
+              </div>
+            </div>
+
+          </div>
         </div>
 
-        <h3 class="font-display text-xl font-bold text-white">Android</h3>
-        <p class="mt-2 text-base text-slate-400 leading-relaxed flex-1">
-          Use your phone to scan paper documents. The app reads student details automatically — no Play Store needed.
-        </p>
-        <p class="mt-3 text-sm text-slate-500">Android 8.0+ · <span id="apk-release-size">{apkAssetSize}</span></p>
-
-        <a
-          id="apk-download-btn"
-          href="https://github.com/ssbg04/TIS_RMS/releases/latest/download/TIS_RMS_Android_Universal.apk"
-          class="mt-6 flex items-center justify-center gap-2.5 rounded-xl border border-white/12 bg-white/6 px-5 py-4 text-base font-semibold text-white hover:bg-white/10 transition"
-        >
-          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-          </svg>
-          Download for Android
-        </a>
+        <!-- Android installation tip -->
+        <div class="mt-6 pt-4 border-t border-slate-200/80 flex items-start gap-2.5 text-xs text-slate-500">
+          <span class="text-base text-amber-500 leading-none">💡</span>
+          <span>
+            <strong class="text-slate-700">Android Tip:</strong> When installing, allow <strong class="text-slate-700 font-semibold">"Install unknown apps"</strong> or <strong class="text-slate-700 font-semibold">"Unknown sources"</strong> in your device settings.
+          </span>
+        </div>
       </div>
 
     </div>
 
-    <!-- IT Admin / Server note -->
-    <div class="mt-6 rounded-2xl border border-white/6 bg-white/2 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <!-- IT Admin / Campus Server Note -->
+    <div class="mt-8 rounded-2xl border border-slate-200 bg-slate-50/80 p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 shadow-xs">
       <div>
-        <p class="text-sm font-semibold text-slate-300">For IT Admins — Campus Server Setup</p>
-        <p class="mt-1 text-sm text-slate-500">The backend server runs on Node.js on a designated school PC. Visit GitHub for setup instructions.</p>
+        <p class="text-sm font-bold text-slate-900">For IT Admins — Campus Server Setup</p>
+        <p class="mt-1 text-sm text-slate-600">The backend server runs locally on Node.js and SQLite on a designated school computer. Setup guides and API endpoints are on GitHub.</p>
       </div>
       <a
         href="https://github.com/ssbg04/TIS_RMS"
         target="_blank"
         rel="noopener noreferrer"
-        class="shrink-0 inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-medium text-slate-300 hover:bg-white/10 hover:text-white transition"
+        class="shrink-0 inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition shadow-xs"
       >
         <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
         </svg>
-        View on GitHub
+        View GitHub Repository
       </a>
     </div>
-
-    <!-- Android install note -->
-    <p class="mt-6 text-center text-sm text-slate-600">
-      For Android: enable <strong class="text-slate-400">Install unknown apps</strong> in your device settings before installing the APK.
-    </p>
 
   </div>
 </section>
@@ -150,11 +267,25 @@ try {
           })
         : "";
 
-      const winAsset = release.assets?.find(
-        (a: any) => a.name === "TIS_RMS_Client_Setup.exe" || a.name.endsWith(".exe")
+      const assets: any[] = release.assets || [];
+
+      // Windows
+      const winAsset = assets.find((a: any) => a.name.endsWith(".exe"));
+      // Universal APK
+      const universalAsset = assets.find((a: any) =>
+        a.name.toLowerCase().includes("universal") && a.name.endsWith(".apk")
       );
-      const apkAsset = release.assets?.find(
-        (a: any) => a.name === "TIS_RMS_Android_Universal.apk" || a.name.endsWith(".apk")
+      // 64-bit APK
+      const asset64 = assets.find((a: any) =>
+        (a.name.includes("64") || a.name.toLowerCase().includes("arm64")) &&
+        !a.name.toLowerCase().includes("universal") &&
+        a.name.endsWith(".apk")
+      );
+      // 32-bit APK
+      const asset32 = assets.find((a: any) =>
+        (a.name.includes("32") || a.name.toLowerCase().includes("v7a")) &&
+        !a.name.toLowerCase().includes("universal") &&
+        a.name.endsWith(".apk")
       );
 
       const versionLabel = document.getElementById("release-version-label");
@@ -169,11 +300,25 @@ try {
         if (winBtn && winAsset.browser_download_url) winBtn.href = winAsset.browser_download_url;
       }
 
-      if (apkAsset) {
-        const apkSize = document.getElementById("apk-release-size");
-        if (apkSize) apkSize.textContent = `${(apkAsset.size / (1024 * 1024)).toFixed(1)} MB`;
-        const apkBtn = document.getElementById("apk-download-btn") as HTMLAnchorElement | null;
-        if (apkBtn && apkAsset.browser_download_url) apkBtn.href = apkAsset.browser_download_url;
+      if (universalAsset) {
+        const univSize = document.getElementById("apk-universal-size");
+        if (univSize) univSize.textContent = `${(universalAsset.size / (1024 * 1024)).toFixed(1)} MB`;
+        const univBtn = document.getElementById("apk-universal-btn") as HTMLAnchorElement | null;
+        if (univBtn && universalAsset.browser_download_url) univBtn.href = universalAsset.browser_download_url;
+      }
+
+      if (asset64) {
+        const size64 = document.getElementById("apk-64-size");
+        if (size64) size64.textContent = `${(asset64.size / (1024 * 1024)).toFixed(1)} MB`;
+        const btn64 = document.getElementById("apk-64-btn") as HTMLAnchorElement | null;
+        if (btn64 && asset64.browser_download_url) btn64.href = asset64.browser_download_url;
+      }
+
+      if (asset32) {
+        const size32 = document.getElementById("apk-32-size");
+        if (size32) size32.textContent = `${(asset32.size / (1024 * 1024)).toFixed(1)} MB`;
+        const btn32 = document.getElementById("apk-32-btn") as HTMLAnchorElement | null;
+        if (btn32 && asset32.browser_download_url) btn32.href = asset32.browser_download_url;
       }
 
       const notesLinks = document.querySelectorAll<HTMLAnchorElement>(".github-release-notes-link");

@@ -34,27 +34,31 @@ const featuresList = [
 ];
 ---
 
-<section id="features" class="relative bg-[#09110c] py-24 border-t border-white/5 text-white">
+<section id="features" class="relative bg-white py-20 border-t border-slate-200">
   <div class="mx-auto max-w-6xl px-5 sm:px-8">
 
     <!-- Header -->
     <div class="mx-auto max-w-2xl text-center">
-      <p class="text-sm font-semibold text-[#4ade80] uppercase tracking-widest mb-3">Features</p>
-      <h2 class="font-display text-3xl font-bold text-white sm:text-4xl">
+      <div class="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-[#ecfdf5] px-3.5 py-1 text-xs font-semibold text-[#15803d] uppercase tracking-wider mb-3.5">
+        Features
+      </div>
+      <h2 class="font-display text-3xl font-bold text-slate-900 sm:text-4xl">
         Everything you need to manage school records.
       </h2>
-      <p class="mt-4 text-base text-slate-400 leading-relaxed">
+      <p class="mt-3 text-base text-slate-600 leading-relaxed">
         Simple tools to help school staff register, organize, and access student information — without the complexity.
       </p>
     </div>
 
     <!-- Feature Grid -->
-    <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {featuresList.map((item) => (
-        <div class="rounded-2xl border border-white/8 bg-white/3 p-6 transition hover:bg-white/6 hover:border-white/14">
-          <div class="text-3xl mb-4">{item.icon}</div>
-          <h3 class="font-display text-lg font-semibold text-white">{item.title}</h3>
-          <p class="mt-2 text-sm text-slate-400 leading-relaxed">{item.description}</p>
+        <div class="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs transition hover:shadow-md hover:border-slate-300">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-50 border border-slate-100 text-2xl mb-4 shadow-xs">
+            {item.icon}
+          </div>
+          <h3 class="font-display text-base font-bold text-slate-900">{item.title}</h3>
+          <p class="mt-2 text-sm text-slate-600 leading-relaxed">{item.description}</p>
         </div>
       ))}
     </div>
