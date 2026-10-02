@@ -1,99 +1,42 @@
----
-// Navbar component - Talisay Integrated School RMS
----
-
-<header class="fixed left-0 right-0 top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md shadow-xs">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 sm:px-8">
-
-    <!-- Brand -->
-    <a href="#" class="flex items-center gap-3 group">
-      <img
-        src="/tis_logo.png"
-        alt="Talisay Integrated School"
-        class="h-9 w-9 object-contain transition-transform group-hover:scale-105"
-        width="36"
-        height="36"
-      />
-      <div>
-        <div class="font-display text-base font-bold text-slate-900 leading-none">TIS RMS</div>
-        <div class="text-xs text-slate-500 mt-0.5 font-normal">Talisay Integrated School</div>
-      </div>
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="/" class="brand" aria-label="TIS RMS home">
+      <img src="/tis_logo.png" alt="" width="36" height="36" />
+      <span><strong>TIS RMS</strong><small>Talisay Integrated School</small></span>
     </a>
-
-    <!-- Desktop Navigation -->
-    <nav class="hidden items-center gap-7 text-sm font-medium text-slate-600 lg:flex">
-      <a href="#showcase" class="transition hover:text-slate-900">Screenshots</a>
-      <a href="#school-forms" class="transition hover:text-slate-900">School Forms</a>
-      <a href="#ocr-pipeline" class="transition hover:text-slate-900">Scanning</a>
-      <a href="#features" class="transition hover:text-slate-900">Features</a>
-      <a href="#downloads" class="transition hover:text-slate-900">Downloads</a>
+    <nav aria-label="Main navigation">
+      <a href="https://demo.tis-rms.cc.cd" target="_blank" rel="noopener noreferrer">Live demo</a>
+      <a href="https://docs.tis-rms.cc.cd" target="_blank" rel="noopener noreferrer">Documentation</a>
+      <a href="#downloads">Downloads</a>
     </nav>
-
-    <!-- Actions -->
-    <div class="flex items-center gap-2.5">
-      <a
-        href="https://github.com/ssbg04/TIS_RMS"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hidden items-center rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:border-slate-300 sm:inline-flex shadow-xs"
-      >
-        <svg class="h-4 w-4 mr-1.5 text-slate-600" fill="currentColor" viewBox="0 0 24 24">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-        </svg>
-        GitHub
-      </a>
-
-      <a
-        href="#downloads"
-        class="inline-flex items-center gap-1.5 rounded-lg bg-[#15803d] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#166534] shadow-sm"
-      >
-        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-        </svg>
-        Download
-      </a>
-
-      <!-- Mobile Toggle -->
-      <button
-        id="mobile-menu-btn"
-        type="button"
-        class="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white p-2 text-slate-700 hover:bg-slate-50 lg:hidden shadow-xs"
-        aria-label="Toggle Navigation Menu"
-      >
-        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden border-b border-slate-200 bg-white px-5 py-4 lg:hidden shadow-md">
-    <nav class="flex flex-col gap-3 text-sm font-medium text-slate-700">
-      <a href="#showcase" class="py-1 transition hover:text-[#15803d]">Screenshots</a>
-      <a href="#school-forms" class="py-1 transition hover:text-[#15803d]">School Forms</a>
-      <a href="#ocr-pipeline" class="py-1 transition hover:text-[#15803d]">Document Scanning</a>
-      <a href="#features" class="py-1 transition hover:text-[#15803d]">Features</a>
-      <a href="#downloads" class="py-1 transition hover:text-[#15803d]">Downloads</a>
-      <a href="https://github.com/ssbg04/TIS_RMS" target="_blank" rel="noopener noreferrer" class="py-1 transition text-slate-500 hover:text-slate-800">View on GitHub →</a>
-    </nav>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+      <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+      <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
   </div>
 </header>
 
 <script>
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
+  const toggle = document.getElementById("theme-toggle");
+  const root = document.documentElement;
+  const themeColor = document.querySelector('meta[name="theme-color"]');
 
-  if (menuBtn && menu) {
-    menuBtn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-    });
-
-    const menuLinks = menu.querySelectorAll('a');
-    menuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.add('hidden');
-      });
-    });
+  function applyTheme(theme: "light" | "dark") {
+    root.dataset.theme = theme;
+    toggle?.setAttribute("aria-pressed", String(theme === "dark"));
+    toggle?.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} theme`);
+    const label = toggle?.querySelector(".theme-toggle-label");
+    if (label) label.textContent = theme === "dark" ? "Light" : "Dark";
+    themeColor?.setAttribute("content", theme === "dark" ? "#0f172a" : "#f8fafc");
   }
+
+  const savedTheme = localStorage.getItem("tis-rms-theme");
+  applyTheme(savedTheme === "dark" ? "dark" : "light");
+
+  toggle?.addEventListener("click", () => {
+    const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+    applyTheme(nextTheme);
+    localStorage.setItem("tis-rms-theme", nextTheme);
+  });
 </script>

@@ -2,46 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Hero from "../components/Hero.astro";
-import AppShowcase from "../components/AppShowcase.astro";
-import Architecture from "../components/Architecture.astro";
-import OcrPipeline from "../components/OcrPipeline.astro";
-import SchoolForms from "../components/SchoolForms.astro";
-import Features from "../components/Features.astro";
-import TechStack from "../components/TechStack.astro";
 import Downloads from "../components/Downloads.astro";
-import Footer from "../components/Footer.astro";
 ---
 
-<Layout title="TIS_RMS — School Records Management System & Automated OCR Pipeline">
-  <!-- Top Navigation Header -->
+<Layout title="TIS RMS — Student Records, Made Simple">
   <Navbar />
 
-  <!-- Hero Section -->
   <main>
     <Hero />
 
-    <!-- Interactive App Showcase -->
-    <AppShowcase />
-
-    <!-- System & LAN Architecture -->
-    <Architecture />
-
-    <!-- OCR Extraction Pipeline -->
-    <OcrPipeline />
-
-    <!-- DepEd SF-10 Reports & Excel Generation -->
-    <SchoolForms />
-
-    <!-- Core Features Grid -->
-    <Features />
-
-    <!-- Technology & Stack Matrix -->
-    <TechStack />
-
-    <!-- Downloads Hub -->
     <Downloads />
   </main>
-
-  <!-- Footer -->
-  <Footer />
 </Layout>

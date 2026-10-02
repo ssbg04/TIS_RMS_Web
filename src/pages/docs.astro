@@ -1,0 +1,17 @@
+---
+const destination = "https://docs.tis-rms.cc.cd";
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content={`0;url=${destination}`} />
+    <link rel="canonical" href={destination} />
+    <title>Redirecting to TIS RMS documentation</title>
+  </head>
+  <body>
+    <p>Redirecting to the <a href={destination}>TIS RMS documentation</a>.</p>
+    <script define:vars={{ destination }}>window.location.replace(destination);</script>
+  </body>
+</html>

@@ -7,14 +7,24 @@ interface Props {
 }
 
 const {
-  title = "TIS RMS — Student Records Management System (2021 Onwards) | Talisay Integrated School",
-  description = "Records management system for Talisay Integrated School in Tiaong, Quezon. Dedicated to managing and digitizing historical learner records from old documents 2021 onwards using SF10 and SF9 for efficient basic information registration.",
+  title = "TIS RMS — Student Records, Made Simple | Talisay Integrated School",
+  description = "A secure, practical records management system for Talisay Integrated School staff to organize learner records, digitize documents, and find information.",
 } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
+    <script is:inline>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("tis-rms-theme");
+          document.documentElement.dataset.theme = savedTheme === "dark" ? "dark" : "light";
+        } catch {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
@@ -35,17 +45,7 @@ const {
     <link rel="icon" href="/tis_logo.png" type="image/png" />
   </head>
 
-  <body class="bg-[#f8fafc] text-slate-800 selection:bg-[#15803d] selection:text-white school-watermark-bg min-h-screen relative antialiased">
-    <!-- Faint school emblem watermark matching app desktop background -->
-    <div class="fixed inset-0 pointer-events-none -z-10 flex items-center justify-center overflow-hidden">
-      <img
-        src="/tis_logo.png"
-        alt=""
-        aria-hidden="true"
-        class="w-[680px] h-[680px] object-contain opacity-[0.032] grayscale select-none blur-[0.5px]"
-      />
-    </div>
-
+  <body>
     <slot />
   </body>
 </html>
