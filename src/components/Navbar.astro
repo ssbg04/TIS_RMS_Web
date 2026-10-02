@@ -1,19 +1,52 @@
-<header class="site-header">
+<header class="site-header" id="site-header">
   <div class="nav-inner">
     <a href="/" class="brand" aria-label="TIS RMS home">
       <img src="/tis_logo.png" alt="" width="36" height="36" />
       <span><strong>TIS RMS</strong><small>Talisay Integrated School</small></span>
     </a>
-    <nav aria-label="Main navigation">
+
+    <nav class="desktop-nav" aria-label="Main navigation">
       <a href="https://demo.tis-rms.cc.cd" target="_blank" rel="noopener noreferrer">Live demo</a>
       <a href="https://docs.tis-rms.cc.cd" target="_blank" rel="noopener noreferrer">Documentation</a>
       <a href="#downloads">Downloads</a>
     </nav>
-    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
-      <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
-      <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg>
-      <span class="theme-toggle-label">Dark</span>
-    </button>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg>
+        <span class="theme-toggle-label">Dark</span>
+      </button>
+
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <svg class="menu-icon menu-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="4" y1="7" x2="20" y2="7"/>
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <line x1="4" y1="17" x2="20" y2="17"/>
+        </svg>
+        <svg class="menu-icon menu-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+    <div class="mobile-nav-content">
+      <a href="https://demo.tis-rms.cc.cd" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">
+        <span>Live demo</span>
+        <span class="mobile-nav-badge">Demo ↗</span>
+      </a>
+      <a href="https://docs.tis-rms.cc.cd" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">
+        <span>Documentation</span>
+        <span class="mobile-nav-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a href="#downloads" class="mobile-nav-link mobile-nav-highlight">
+        <span>Downloads</span>
+        <span class="mobile-nav-arrow" aria-hidden="true">↓</span>
+      </a>
+    </div>
   </div>
 </header>
 
@@ -28,7 +61,7 @@
     toggle?.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} theme`);
     const label = toggle?.querySelector(".theme-toggle-label");
     if (label) label.textContent = theme === "dark" ? "Light" : "Dark";
-    themeColor?.setAttribute("content", theme === "dark" ? "#0f172a" : "#f8fafc");
+    themeColor?.setAttribute("content", theme === "dark" ? "#0b1120" : "#f8fafc");
   }
 
   const savedTheme = localStorage.getItem("tis-rms-theme");
@@ -38,5 +71,57 @@
     const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
     applyTheme(nextTheme);
     localStorage.setItem("tis-rms-theme", nextTheme);
+  });
+
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileNav = document.getElementById("mobile-nav");
+
+  function closeMobileNav() {
+    if (!mobileNav || mobileNav.hidden) return;
+    mobileNav.hidden = true;
+    menuToggle?.setAttribute("aria-expanded", "false");
+    menuToggle?.setAttribute("aria-label", "Open menu");
+  }
+
+  function openMobileNav() {
+    if (!mobileNav) return;
+    mobileNav.hidden = false;
+    menuToggle?.setAttribute("aria-expanded", "true");
+    menuToggle?.setAttribute("aria-label", "Close menu");
+  }
+
+  menuToggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+    if (isExpanded) {
+      closeMobileNav();
+    } else {
+      openMobileNav();
+    }
+  });
+
+  mobileNav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      closeMobileNav();
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    const header = document.getElementById("site-header");
+    if (header && !header.contains(e.target as Node)) {
+      closeMobileNav();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeMobileNav();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) {
+      closeMobileNav();
+    }
   });
 </script>
