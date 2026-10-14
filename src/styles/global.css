@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
-@import "tailwindcss";
-
 /* ─── Design tokens ──────────────────────────────────────────────────────── */
 :root {
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -288,8 +285,10 @@ h1 span { color: var(--green); }
   justify-self: end;
   width: min(100%, 540px);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 16px;
 }
 .hero-mockup-wrap {
   position: relative;
@@ -307,6 +306,61 @@ h1 span { color: var(--green); }
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+/* ─── Hero module showcase ───────────────────────────────────────────────── */
+.hero-module-showcase {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: heroFade .6s .25s ease both;
+}
+.module-pills {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 3px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+}
+.module-pill {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font: 500 12px/1 var(--font-sans);
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.module-pill:hover {
+  color: var(--text);
+  background: var(--surface-raised);
+}
+.module-pill.active {
+  color: #ffffff;
+  background: var(--green-dark);
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(22, 163, 74, .25);
+}
+:root[data-theme="dark"] .module-pill.active {
+  color: #052e16;
+  background: var(--green);
+}
+.module-preview-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.5;
+  text-align: center;
+  min-height: 28px;
+  max-width: 460px;
+  transition: opacity .2s ease;
 }
 /* Orbit rings behind the mockup on large screens */
 .hero-visual .mark-orbit {
@@ -566,6 +620,63 @@ h2 { font-size: clamp(26px, 4vw, 42px); line-height: 1.15; font-weight: 700; }
   color: var(--green);
 }
 
+/* ─── ABI Picker Helper ────────────────────────────────────────────────── */
+.abi-helper {
+  margin-top: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  overflow: hidden;
+  font-size: 13px;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.abi-helper[open] {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-sm);
+}
+.abi-helper summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 500;
+  color: var(--body);
+  list-style: none;
+  transition: color .15s ease, background-color .15s ease;
+}
+.abi-helper summary::-webkit-details-marker { display: none; }
+.abi-helper summary svg {
+  width: 16px; height: 16px;
+  color: var(--green);
+  flex-shrink: 0;
+}
+.abi-chevron {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--muted);
+  transition: transform .2s ease;
+}
+.abi-helper[open] .abi-chevron {
+  transform: rotate(180deg);
+}
+.abi-helper summary:hover {
+  color: var(--text);
+  background: var(--surface-raised);
+}
+.abi-helper-body {
+  padding: 12px 16px 16px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+.abi-helper-body p { margin: 6px 0; }
+.abi-helper-body strong { color: var(--text); }
+.abi-helper-body em { font-style: normal; font-weight: 600; color: var(--green); }
+
 /* Skeleton loaders */
 @keyframes shimmer {
   from { background-position: -200% 0; }
@@ -652,6 +763,93 @@ h2 { font-size: clamp(26px, 4vw, 42px); line-height: 1.15; font-weight: 700; }
   font: 600 14px/1.3 var(--font-sans);
 }
 .feature-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* ─── How It Works section ────────────────────────────────────────────── */
+.how-section {
+  width: 100%;
+  padding: 96px 24px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  box-sizing: border-box;
+}
+.how-inner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.how-heading {
+  max-width: 580px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.how-card {
+  position: relative;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.how-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow);
+}
+.how-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.how-step-num {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--green);
+  opacity: .9;
+}
+.how-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--body);
+}
+.how-icon-wrap {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--green-soft);
+  color: var(--green);
+  border: 1px solid color-mix(in srgb, var(--green) 20%, transparent);
+}
+.how-icon-wrap svg {
+  width: 20px;
+  height: 20px;
+}
+.how-title {
+  margin: 0;
+  color: var(--text);
+  font: 700 15px/1.3 var(--font-sans);
+}
+.how-desc {
   margin: 0;
   color: var(--muted);
   font-size: 13px;
@@ -750,6 +948,15 @@ h2 { font-size: clamp(26px, 4vw, 42px); line-height: 1.15; font-weight: 700; }
   .features-section { padding: 64px 16px; }
   .features-grid { grid-template-columns: repeat(2, 1fr); }
   .features-heading { margin-bottom: 36px; }
+  /* How It Works mobile */
+  .how-section { padding: 64px 16px; }
+  .how-grid { grid-template-columns: 1fr; gap: 14px; }
+  .how-heading { margin-bottom: 36px; }
+  .how-card { padding: 24px 20px; }
+  /* Hero module pills mobile */
+  .module-pills { width: 100%; justify-content: center; }
+  .module-pill { padding: 5px 9px; font-size: 11px; }
+  .module-preview-text { font-size: 11px; padding: 0 4px; }
   .site-footer {
     flex-wrap: wrap; justify-content: space-between;
     padding: 16px 0 22px; min-height: auto; gap: 10px;

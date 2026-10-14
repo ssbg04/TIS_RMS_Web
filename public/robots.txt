@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tis-rms.cc.cd/sitemap.xml

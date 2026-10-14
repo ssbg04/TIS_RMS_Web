@@ -10,6 +10,30 @@ const {
   title = "TIS RMS - Student Records, Made Simple | Talisay Integrated School",
   description = "A secure, practical records management system for Talisay Integrated School staff to organize learner records, digitize documents, and find information.",
 } = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "TIS RMS",
+  "operatingSystem": "Windows 10, Windows 11, Android",
+  "applicationCategory": "EducationalApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "PHP",
+  },
+  "publisher": {
+    "@type": "EducationalOrganization",
+    "name": "Talisay Integrated School",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tiaong",
+      "addressRegion": "Quezon",
+      "addressCountry": "PH",
+    },
+  },
+  "description": description,
+};
 ---
 
 <!doctype html>
@@ -40,15 +64,28 @@ const {
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/tis_logo.png" />
+    <meta property="og:image" content="/app_screenshot.webp" />
 
-    <!-- Google Fonts Preconnect -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/app_screenshot.webp" />
+
+    <!-- PWA Web App Manifest -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- Google Fonts Preconnect & Stylesheet (non-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    />
 
     <!-- Preload critical assets -->
-    <link rel="preload" href="/tis_logo.png" as="image" />
-    <link rel="preload" href="/app_screenshot.png" as="image" />
+    <link rel="preload" href="/tis_logo.webp" as="image" type="image/webp" />
+    <link rel="preload" href="/app_screenshot.webp" as="image" type="image/webp" />
 
     <!-- DNS prefetch for external links -->
     <link rel="dns-prefetch" href="https://demo.tis-rms.cc.cd" />
@@ -56,7 +93,10 @@ const {
     <link rel="dns-prefetch" href="https://api.github.com" />
 
     <title>{title}</title>
-    <link rel="icon" href="/tis_logo.png" type="image/png" />
+    <link rel="icon" href="/tis_logo.webp" type="image/webp" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
 
   <body>

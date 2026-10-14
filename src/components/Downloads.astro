@@ -50,6 +50,19 @@ const windowsIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentCo
         </div>
       ))}
     </div>
+
+    <!-- ABI Picker Helper -->
+    <details class="abi-helper">
+      <summary>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span>Which Android download should I choose?</span>
+        <span class="abi-chevron" aria-hidden="true">↓</span>
+      </summary>
+      <div class="abi-helper-body">
+        <p><strong>Android universal (Recommended):</strong> Works on virtually any Android smartphone or tablet. If you aren't sure of your device's processor, pick this one.</p>
+        <p><strong>Split APKs (arm64-v8a / armeabi-v7a):</strong> Smaller file sizes tailored for specific chipsets. <em>64-bit</em> is best for modern phones; <em>32-bit</em> is for older or entry-level phones.</p>
+      </div>
+    </details>
   </div>
 
   <div class="download-footnote">
@@ -182,7 +195,7 @@ const windowsIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentCo
 
   <footer class="site-footer">
     <a class="brand footer-brand" href="/">
-      <img src="/tis_logo.png" alt="" width="30" height="30" />
+      <img src="/tis_logo.webp" alt="" width="30" height="30" />
       <span><strong>TIS RMS</strong><small>Talisay Integrated School</small></span>
     </a>
     <span>© {currentYear} Talisay Integrated School · Tiaong, Quezon</span>

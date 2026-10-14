@@ -10,11 +10,11 @@
     <div class="hero-notes"><span>Windows &amp; Android</span><span>Private by design</span><span>Works on school network</span></div>
   </div>
 
-  <div class="hero-visual" aria-hidden="true">
+  <div class="hero-visual">
     <div class="hero-mockup-wrap">
       <img
-        src="/app_screenshot.png"
-        alt="TIS RMS Dashboard Overview"
+        src="/app_screenshot.webp"
+        alt="TIS RMS Dashboard Overview showing learner count and pending requirements"
         width="1024"
         height="576"
         fetchpriority="high"
@@ -22,9 +22,21 @@
         class="hero-mockup"
       />
     </div>
+
+    <!-- Interactive Module Highlights -->
+    <div class="hero-module-showcase" aria-label="Feature module previews">
+      <div class="module-pills" role="tablist">
+        <button class="module-pill active" type="button" role="tab" aria-selected="true" data-text="Instant bird's-eye view of total learners, active users, and immediate items requiring action.">Dashboard</button>
+        <button class="module-pill" type="button" role="tab" aria-selected="false" data-text="Fast learner search by name, LRN, section, or grade level with complete profile history.">Learners</button>
+        <button class="module-pill" type="button" role="tab" aria-selected="false" data-text="Track missing Form 137 / SF10, SF9, PSA birth certificates, and 2×2 ID photos with 1 click.">Documents</button>
+        <button class="module-pill" type="button" role="tab" aria-selected="false" data-text="Generate enrollment summaries, section rosters, and school metrics in print-ready formats.">Reports</button>
+      </div>
+      <p class="module-preview-text" id="module-preview-text">Instant bird's-eye view of total learners, active users, and immediate items requiring action.</p>
+    </div>
+
     <!-- Decorative orbit only visible on very wide screens -->
-    <div class="mark-orbit mark-orbit-one"></div>
-    <div class="mark-orbit mark-orbit-two"></div>
+    <div class="mark-orbit mark-orbit-one" aria-hidden="true"></div>
+    <div class="mark-orbit mark-orbit-two" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -58,3 +70,22 @@
     </div>
   </div>
 </section>
+
+<script>
+  const pills = document.querySelectorAll<HTMLButtonElement>(".module-pill");
+  const previewText = document.getElementById("module-preview-text");
+
+  pills.forEach((pill) => {
+    pill.addEventListener("click", () => {
+      pills.forEach((p) => {
+        p.classList.remove("active");
+        p.setAttribute("aria-selected", "false");
+      });
+      pill.classList.add("active");
+      pill.setAttribute("aria-selected", "true");
+      if (previewText) {
+        previewText.textContent = pill.dataset.text || "";
+      }
+    });
+  });
+</script>

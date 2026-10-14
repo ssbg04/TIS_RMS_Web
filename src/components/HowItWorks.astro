@@ -1,0 +1,49 @@
+---
+const steps = [
+  {
+    step: "01",
+    title: "Host on School PC",
+    badge: "Windows",
+    desc: "Launch the TIS RMS Windows desktop application on your designated school computer. It acts as a secure local server with zero cloud setup.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
+  },
+  {
+    step: "02",
+    title: "Connect to Local Wi-Fi",
+    badge: "Intranet",
+    desc: "Connect staff phones, tablets, or faculty room laptops to the school's local Wi-Fi. Data never leaves your premises — private and 100% offline-ready.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>`,
+  },
+  {
+    step: "03",
+    title: "Access & Manage Records",
+    badge: "Android & Web",
+    desc: "Faculty and registrars log in to search learners, verify Form 137 / SF10 requirements, attach documents, and generate summary reports in seconds.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/><path d="m9 10 2 2 4-4"/></svg>`,
+  },
+];
+---
+
+<section class="how-section" aria-label="How TIS RMS Works">
+  <div class="how-inner">
+    <div class="section-heading how-heading">
+      <p class="eyebrow">Local Network Architecture</p>
+      <h2>Simple 3-step school setup</h2>
+      <p>No recurring cloud fees, no external dependencies, and complete data sovereignty.</p>
+    </div>
+
+    <div class="how-grid">
+      {steps.map(({ step, title, badge, desc, icon }) => (
+        <div class="how-card">
+          <div class="how-card-header">
+            <span class="how-step-num">{step}</span>
+            <span class="how-badge">{badge}</span>
+          </div>
+          <div class="how-icon-wrap" aria-hidden="true" set:html={icon}></div>
+          <h3 class="how-title">{title}</h3>
+          <p class="how-desc">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
