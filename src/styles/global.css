@@ -81,10 +81,15 @@ button, a { -webkit-tap-highlight-color: transparent; }
   z-index: 50;
   width: 100%;
   border-bottom: 1px solid var(--border);
-  background: color-mix(in srgb, var(--bg) 85%, transparent);
-  backdrop-filter: blur(20px) saturate(1.5);
-  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  background: rgba(249, 250, 251, 0.8);
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
   transition: border-color .2s ease, background-color .2s ease;
+}
+:root[data-theme="dark"] .site-header {
+  background: rgba(10, 15, 26, 0.8);
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
 }
 .nav-inner {
   width: 100%;
