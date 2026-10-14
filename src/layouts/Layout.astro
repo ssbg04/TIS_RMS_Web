@@ -7,19 +7,25 @@ interface Props {
 }
 
 const {
-  title = "TIS RMS — Student Records, Made Simple | Talisay Integrated School",
+  title = "TIS RMS - Student Records, Made Simple | Talisay Integrated School",
   description = "A secure, practical records management system for Talisay Integrated School staff to organize learner records, digitize documents, and find information.",
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
+    <!-- Inline theme script: detect system preference if no saved preference -->
     <script is:inline>
       (() => {
         try {
-          const savedTheme = localStorage.getItem("tis-rms-theme");
-          document.documentElement.dataset.theme = savedTheme === "dark" ? "dark" : "light";
+          const saved = localStorage.getItem("tis-rms-theme");
+          if (saved === "dark" || saved === "light") {
+            document.documentElement.dataset.theme = saved;
+          } else {
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
+          }
         } catch {
           document.documentElement.dataset.theme = "light";
         }
@@ -40,12 +46,20 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <title>{title}</title>
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/tis_logo.png" as="image" />
+    <link rel="preload" href="/app_screenshot.png" as="image" />
 
+    <!-- DNS prefetch for external links -->
+    <link rel="dns-prefetch" href="https://demo.tis-rms.cc.cd" />
+    <link rel="dns-prefetch" href="https://docs.tis-rms.cc.cd" />
+    <link rel="dns-prefetch" href="https://api.github.com" />
+
+    <title>{title}</title>
     <link rel="icon" href="/tis_logo.png" type="image/png" />
   </head>
 
   <body>
     <slot />
   </body>
-</html>
+</html>

@@ -1,0 +1,53 @@
+---
+const features = [
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>`,
+    title: "Instant record search",
+    desc: "Find any learner in seconds. Search by name, grade level, section, or LRN across your entire record base.",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
+    title: "Digitize documents",
+    desc: "Attach and organize Form 137s, SF9s, birth certificates, and other documents directly to each learner's profile.",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>`,
+    title: "Grade & section reports",
+    desc: "Generate section lists, enrollment summaries, and learner counts by grade level in just a few clicks.",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    title: "Private by design",
+    desc: "All data stays on your school's local network. No cloud uploads, no third-party access — your records remain yours.",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
+    title: "Works on Android",
+    desc: "Access records from your phone or tablet. The Android app connects to the same server on your school network.",
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+    title: "Always up to date",
+    desc: "Built and maintained for Talisay Integrated School. Updates are distributed automatically through GitHub Releases.",
+  },
+];
+---
+
+<section class="features-section" aria-label="Features">
+  <div class="features-inner">
+    <div class="section-heading features-heading">
+      <p class="eyebrow">What's inside</p>
+      <h2>Everything your staff needs</h2>
+      <p>Practical tools built specifically for DepEd record-keeping workflows.</p>
+    </div>
+    <ul class="features-grid" role="list">
+      {features.map(({ icon, title, desc }) => (
+        <li class="feature-card">
+          <span class="feature-icon" aria-hidden="true" set:html={icon}></span>
+          <strong class="feature-title">{title}</strong>
+          <p class="feature-desc">{desc}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
