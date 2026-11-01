@@ -477,18 +477,55 @@
 
     cantInstall?.addEventListener("click", openModal);
 
-    // Click safeguard: if clicked before full async init, download directly instead of navigating to #downloads
+    // ── Android Direct Download Helper (Bypasses GitHub App Redirection) ────
+    function triggerAndroidDownload(url: string) {
+      const iframe = document.createElement("iframe");
+      iframe.style.position = "fixed";
+      iframe.style.top = "0";
+      iframe.style.left = "0";
+      iframe.style.width = "1px";
+      iframe.style.height = "1px";
+      iframe.style.opacity = "0.01";
+      iframe.style.pointerEvents = "none";
+      iframe.style.border = "none";
+      iframe.src = url;
+      document.body.appendChild(iframe);
+      setTimeout(() => {
+        try { iframe.remove(); } catch (_) {}
+      }, 30000);
+    }
+
+    // Modal Android links: intercept click on Android to avoid opening GitHub app
+    function setupModalAndroidLink(link: HTMLAnchorElement | null) {
+      link?.addEventListener("click", (e) => {
+        const isAndroid = /android/i.test(navigator.userAgent || "");
+        if (isAndroid && link.href) {
+          e.preventDefault();
+          triggerAndroidDownload(link.href);
+          closeModal();
+        }
+      });
+    }
+    setupModalAndroidLink(universalLink);
+    setupModalAndroidLink(arm64Link);
+    setupModalAndroidLink(armeabiLink);
+
+    // Hero button click handler: bypass GitHub app on Android, direct download on Windows
     btn?.addEventListener("click", (e) => {
+      const isAndroid = /android/i.test(navigator.userAgent || "");
+      if (isAndroid) {
+        e.preventDefault();
+        const cur = detectPlatformAndArch();
+        const chosen = cur.arch === "32" ? currentAssets.armeabi : currentAssets.arm64;
+        triggerAndroidDownload(chosen.url);
+        return;
+      }
       const href = btn.getAttribute("href") || "";
       if (href === "#downloads" || href.startsWith("#")) {
         const cur = detectPlatformAndArch();
         if (cur.platform === "windows") {
           e.preventDefault();
           window.location.href = currentAssets.windows.url;
-        } else if (cur.platform === "android") {
-          e.preventDefault();
-          const chosen = cur.arch === "32" ? currentAssets.armeabi : currentAssets.arm64;
-          window.location.href = chosen.url;
         }
       }
     });

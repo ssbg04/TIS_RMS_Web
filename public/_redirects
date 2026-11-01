@@ -1,2 +1,7 @@
-/demo https://demo.tis-rms.cc.cd 302
-/docs https://docs.tis-rms.cc.cd 302
+/demo https://demo.tisrms.de5.net 302
+/docs https://docs.tisrms.de5.net 302
+/download/windows https://github.com/ssbg04/TIS_RMS/releases/download/v2.0.62/TIS_RMS_Client_Setup_v2.0.62.exe 302
+/download/android-universal https://github.com/ssbg04/TIS_RMS/releases/download/v2.0.62/TIS_RMS_Universal_v2.0.62.apk 302
+/download/android-64 https://github.com/ssbg04/TIS_RMS/releases/download/v2.0.62/TIS_RMS_64_v2.0.62.apk 302
+/download/android-32 https://github.com/ssbg04/TIS_RMS/releases/download/v2.0.62/TIS_RMS_32bit_v2.0.62.apk 302
+

@@ -319,6 +319,39 @@ const windowsIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentCo
 
     loadLatestDownloads();
 
+    // ── Bypass GitHub App on Android ─────────────────────────────────────────
+    function triggerAndroidDownload(url) {
+      const iframe = document.createElement("iframe");
+      iframe.style.position = "fixed";
+      iframe.style.top = "0";
+      iframe.style.left = "0";
+      iframe.style.width = "1px";
+      iframe.style.height = "1px";
+      iframe.style.opacity = "0.01";
+      iframe.style.pointerEvents = "none";
+      iframe.style.border = "none";
+      iframe.src = url;
+      document.body.appendChild(iframe);
+      setTimeout(() => {
+        try { iframe.remove(); } catch (_) {}
+      }, 30000);
+    }
+
+    function setupAndroidDownload(id) {
+      const el = document.getElementById(id);
+      el?.addEventListener("click", (e) => {
+        const isAndroid = /android/i.test(navigator.userAgent || "");
+        if (isAndroid && el.href) {
+          e.preventDefault();
+          triggerAndroidDownload(el.href);
+        }
+      });
+    }
+
+    setupAndroidDownload("dl-opt-universal");
+    setupAndroidDownload("dl-opt-arm64");
+    setupAndroidDownload("dl-opt-armeabi");
+
     // Scroll reveal observer for downloads section
     const dlElements = document.querySelectorAll(".downloads-section .reveal-init");
     const dlObserver = new IntersectionObserver(

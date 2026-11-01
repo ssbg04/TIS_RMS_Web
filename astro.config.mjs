@@ -1,5 +1,7 @@
 import { defineConfig } from 'astro/config';
 
+import cloudflare from '@astrojs/cloudflare';
+
 export default defineConfig({
   vite: {
     build: {
@@ -7,4 +9,6 @@ export default defineConfig({
       cssTarget: ['chrome80', 'safari14', 'firefox80'],
     },
   },
+
+  adapter: cloudflare(),
 });
