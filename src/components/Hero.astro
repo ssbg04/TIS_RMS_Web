@@ -1,29 +1,134 @@
-<section class="hero">
+<section class="hero" id="hero" aria-label="Hero section">
+  <!-- Subtle Animated Background Gradient Mesh -->
+  <div class="hero-bg-mesh" aria-hidden="true">
+    <div class="hero-mesh-blob-1"></div>
+    <div class="hero-mesh-blob-2"></div>
+  </div>
+
   <div class="hero-copy">
-    <p class="eyebrow">Talisay Integrated School · Tiaong, Quezon</p>
-    <h1>Student records,<br /><span>made simple.</span></h1>
-    <p class="hero-description">A secure, practical way for school staff to organize learner records, digitize documents, and find the information they need.</p>
-    <div class="hero-actions">
-      <a class="button button-primary" href="#downloads">Get TIS RMS</a>
-      <a class="button button-ghost" href="https://demo.tis-rms.cc.cd" target="_blank" rel="noopener noreferrer">Live demo <span aria-hidden="true">↗</span></a>
+    <div class="eyebrow-badge">
+      <span class="eyebrow-dot" aria-hidden="true"></span>
+      <span>Talisay Integrated School · Tiaong, Quezon</span>
     </div>
-    <div class="hero-notes"><span>Windows &amp; Android</span><span>Private by design</span><span>Works on school network</span></div>
+
+    <h1>
+      Student records,<br />
+      <span class="gradient-text">made simple.</span>
+    </h1>
+
+    <p class="hero-description">
+      A secure, practical way for school staff to organize learner records, digitize documents, and find the information they need.
+    </p>
+
+    <div class="hero-actions">
+      <!-- Smart Download CTA Button -->
+      <a class="btn btn-primary" id="hero-download-btn" href="#downloads">
+        <span id="hero-download-icon" class="hero-dl-icon-wrap" aria-hidden="true">
+          <svg class="hero-dl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 4v12m0 0-4-4m4 4 4-4"></path>
+            <rect x="4" y="18" width="16" height="2" rx="1"></rect>
+          </svg>
+        </span>
+        <span id="hero-download-label">Get TIS RMS</span>
+        <svg class="hero-dl-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 5v14M19 12l-7 7-7-7"></path>
+        </svg>
+      </a>
+
+      <!-- "Can't install?" hint — shown only on Android -->
+      <button
+        class="cant-install-hint"
+        id="cant-install-hint"
+        type="button"
+        hidden
+        aria-haspopup="dialog"
+      >Can't install? Try other APKs</button>
+
+      <!-- Secondary Ghost Button -->
+      <a class="btn btn-ghost" href="https://demo.tis-rms.cc.cd" target="_blank" rel="noopener noreferrer">
+        Live demo <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="hero-trust-badges" aria-label="Key highlights">
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 6 9 17l-5-5"></path>
+        </svg>
+        <span>Windows &amp; Android</span>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <span>Private by design</span>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+          <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+          <line x1="12" y1="20" x2="12.01" y2="20"></line>
+        </svg>
+        <span>Works on school network</span>
+      </div>
+    </div>
   </div>
 
   <div class="hero-visual">
-    <div class="hero-mockup-wrap">
-      <img
-        src="/app_screenshot.webp"
-        alt="TIS RMS Dashboard Overview showing learner count and pending requirements"
-        width="1024"
-        height="576"
-        fetchpriority="high"
-        decoding="async"
-        class="hero-mockup"
-      />
+    <div class="mockup-container">
+      <!-- Floating Glass Stat Cards -->
+      <div class="floating-stat-card floating-stat-top" aria-hidden="true">
+        <div class="stat-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <div class="stat-text">
+          <span class="stat-number">1,200+ Records</span>
+          <span class="stat-label">Organized locally</span>
+        </div>
+      </div>
+
+      <div class="floating-stat-card floating-stat-bottom" aria-hidden="true">
+        <div class="stat-icon-wrap" style="background: var(--gold-soft); color: var(--gold); border-color: var(--gold-mid);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m13 2-2 2.5h3L11 8h3l-5 8 1.5-5H8L13 2Z"></path>
+          </svg>
+        </div>
+        <div class="stat-text">
+          <span class="stat-number">3-Step Setup</span>
+          <span class="stat-label">Zero cloud config</span>
+        </div>
+      </div>
+
+      <!-- App Screenshot in Mockup Frame -->
+      <div class="mockup-frame">
+        <div class="mockup-header" aria-hidden="true">
+          <div class="mockup-dots">
+            <div class="mockup-dot" style="background: #ef4444;"></div>
+            <div class="mockup-dot" style="background: #f59e0b;"></div>
+            <div class="mockup-dot" style="background: #10b981;"></div>
+          </div>
+          <span class="mockup-title">TIS RMS — Dashboard</span>
+        </div>
+        <img
+          src="/app_screenshot.webp"
+          alt="TIS RMS Dashboard Overview showing learner count and pending requirements"
+          width="1024"
+          height="576"
+          fetchpriority="high"
+          decoding="async"
+          class="hero-screenshot"
+        />
+      </div>
     </div>
 
-    <!-- Interactive Module Highlights -->
+    <!-- Module Showcase Tabs -->
     <div class="hero-module-showcase" aria-label="Feature module previews">
       <div class="module-pills" role="tablist">
         <button class="module-pill active" type="button" role="tab" aria-selected="true" data-text="Instant bird's-eye view of total learners, active users, and immediate items requiring action.">Dashboard</button>
@@ -31,47 +136,466 @@
         <button class="module-pill" type="button" role="tab" aria-selected="false" data-text="Track missing Form 137 / SF10, SF9, PSA birth certificates, and 2×2 ID photos with 1 click.">Documents</button>
         <button class="module-pill" type="button" role="tab" aria-selected="false" data-text="Generate enrollment summaries, section rosters, and school metrics in print-ready formats.">Reports</button>
       </div>
-      <p class="module-preview-text" id="module-preview-text">Instant bird's-eye view of total learners, active users, and immediate items requiring action.</p>
+      <p class="module-preview-text" id="module-preview-text">
+        Instant bird's-eye view of total learners, active users, and immediate items requiring action.
+      </p>
     </div>
-
-    <!-- Decorative orbit only visible on very wide screens -->
-    <div class="mark-orbit mark-orbit-one" aria-hidden="true"></div>
-    <div class="mark-orbit mark-orbit-two" aria-hidden="true"></div>
   </div>
 </section>
 
-<!-- CTA Section -->
-<section class="cta-section" aria-label="Try the demo or read the docs">
+<!-- CTA Transition Section (Live Demo & Documentation) -->
+<section class="cta-section" aria-label="Quick links to demo and documentation">
   <div class="cta-inner">
-    <div class="cta-card cta-demo">
-      <div class="cta-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+    <div class="cta-card">
+      <div class="cta-icon-wrap" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+          <path d="M8 21h8M12 17v4"></path>
+        </svg>
       </div>
-      <div class="cta-body">
+      <div class="cta-content">
         <strong>Explore the live demo</strong>
-        <p>See TIS RMS in action with sample data — no account needed.</p>
+        <p>Test drive TIS RMS with sample school records — no setup required.</p>
       </div>
-      <a class="cta-link" href="https://demo.tis-rms.cc.cd" target="_blank" rel="noopener noreferrer">
+      <a class="cta-btn" href="https://demo.tis-rms.cc.cd" target="_blank" rel="noopener noreferrer">
         Open demo <span aria-hidden="true">↗</span>
       </a>
     </div>
-    <div class="cta-divider" aria-hidden="true"></div>
-    <div class="cta-card cta-docs">
-      <div class="cta-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+
+    <div class="cta-card">
+      <div class="cta-icon-wrap" style="color: var(--gold);" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
       </div>
-      <div class="cta-body">
+      <div class="cta-content">
         <strong>Read the documentation</strong>
-        <p>Setup guides, feature walkthroughs, and troubleshooting tips.</p>
+        <p>Step-by-step setup guides, workflow instructions, and FAQs.</p>
       </div>
-      <a class="cta-link" href="https://docs.tis-rms.cc.cd" target="_blank" rel="noopener noreferrer">
+      <a class="cta-btn" href="https://docs.tis-rms.cc.cd" target="_blank" rel="noopener noreferrer">
         Open docs <span aria-hidden="true">↗</span>
       </a>
     </div>
   </div>
 </section>
 
+<!-- ── APK Download Modal ────────────────────────────────────────────────── -->
+<div
+  class="apk-modal-backdrop"
+  id="apk-modal-backdrop"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="apk-modal-title"
+  aria-describedby="apk-modal-desc"
+  hidden
+>
+  <div class="apk-modal" id="apk-modal">
+    <button class="apk-modal-close" id="apk-modal-close" type="button" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+    <div class="apk-modal-header">
+      <div class="apk-modal-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.18 9.6a.72.72 0 1 0 0 1.44.72.72 0 0 0 0-1.44Zm11.64 0a.72.72 0 1 0 0 1.44.72.72 0 0 0 0-1.44ZM15.66 3.3l1.2-2.08a.3.3 0 0 0-.52-.3l-1.22 2.12A7.44 7.44 0 0 0 12 2.4a7.44 7.44 0 0 0-3.12.64L7.66.92a.3.3 0 0 0-.52.3l1.2 2.08A6.72 6.72 0 0 0 5.28 8.4h13.44A6.72 6.72 0 0 0 15.66 3.3ZM5.28 9.6v7.08a1.44 1.44 0 0 0 1.44 1.44h.72V21a1.2 1.2 0 0 0 2.4 0v-2.88h4.32V21a1.2 1.2 0 0 0 2.4 0v-2.88h.72a1.44 1.44 0 0 0 1.44-1.44V9.6H5.28ZM3 9.6a1.2 1.2 0 0 0-1.2 1.2v4.8a1.2 1.2 0 0 0 2.4 0V10.8A1.2 1.2 0 0 0 3 9.6Zm18 0a1.2 1.2 0 0 0-1.2 1.2v4.8a1.2 1.2 0 0 0 2.4 0V10.8A1.2 1.2 0 0 0 21 9.6Z"/>
+        </svg>
+      </div>
+      <div>
+        <h2 class="apk-modal-title" id="apk-modal-title">Choose your APK</h2>
+        <p class="apk-modal-desc" id="apk-modal-desc">
+          If the split APK does not install on your device, choose the Universal APK — it is guaranteed to work on all Android phones and tablets.
+        </p>
+      </div>
+    </div>
+
+    <!-- Universal (highlighted) -->
+    <a
+      class="apk-option apk-option-universal"
+      id="modal-universal-link"
+      href="https://github.com/ssbg04/TIS_RMS/releases/download/v2.0.62/TIS_RMS_Universal_v2.0.62.apk"
+      download="TIS_RMS_Universal.apk"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="apk-option-left">
+        <div class="apk-option-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20M12 2a14.5 14.5 0 0 1 0 20M2 12h20"/>
+          </svg>
+        </div>
+        <div class="apk-option-info">
+          <span class="apk-option-name">
+            Android Universal
+            <span class="apk-badge apk-badge-recommended">Recommended</span>
+          </span>
+          <span class="apk-option-detail">Works on all 32-bit and 64-bit devices</span>
+          <span class="apk-option-size" id="modal-universal-size">66.9 MB</span>
+        </div>
+      </div>
+      <span class="apk-option-dl">Download ↓</span>
+    </a>
+
+    <div class="apk-divider"><span>Split APKs by architecture</span></div>
+
+    <!-- 64-bit -->
+    <a
+      class="apk-option"
+      id="modal-arm64-link"
+      href="https://github.com/ssbg04/TIS_RMS/releases/download/v2.0.62/TIS_RMS_64_v2.0.62.apk"
+      download="TIS_RMS_64.apk"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="apk-option-left">
+        <div class="apk-option-icon apk-option-icon-split" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/>
+          </svg>
+        </div>
+        <div class="apk-option-info">
+          <span class="apk-option-name">
+            Android 64-bit
+            <span class="apk-badge" id="modal-arm64-badge"></span>
+          </span>
+          <span class="apk-option-detail">arm64-v8a · Most modern phones</span>
+          <span class="apk-option-size" id="modal-arm64-size">25.8 MB</span>
+        </div>
+      </div>
+      <span class="apk-option-dl">Download ↓</span>
+    </a>
+
+    <!-- 32-bit -->
+    <a
+      class="apk-option"
+      id="modal-armeabi-link"
+      href="https://github.com/ssbg04/TIS_RMS/releases/download/v2.0.62/TIS_RMS_32bit_v2.0.62.apk"
+      download="TIS_RMS_32bit.apk"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="apk-option-left">
+        <div class="apk-option-icon apk-option-icon-split" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h4M9 12h6M9 15h3"/>
+          </svg>
+        </div>
+        <div class="apk-option-info">
+          <span class="apk-option-name">
+            Android 32-bit
+            <span class="apk-badge" id="modal-armeabi-badge"></span>
+          </span>
+          <span class="apk-option-detail">armeabi-v7a · Older &amp; entry-level phones</span>
+          <span class="apk-option-size" id="modal-armeabi-size">23.6 MB</span>
+        </div>
+      </div>
+      <span class="apk-option-dl">Download ↓</span>
+    </a>
+
+    <p class="apk-modal-footnote">
+      Not sure which to pick? Use <strong>Universal</strong>. It runs on every device.
+      <a href="https://github.com/ssbg04/TIS_RMS/releases/latest" target="_blank" rel="noopener noreferrer">Browse all releases on GitHub ↗</a>
+    </p>
+  </div>
+</div>
+
 <script>
+  // ── Smart Download Button + APK Modal Logic ───────────────────────────────
+  (function initSmartHeroDownload() {
+    const CACHE_KEY    = "tis-rms-release-cache";
+    const RELEASES_API = "https://api.github.com/repos/ssbg04/TIS_RMS/releases/latest";
+    const RELEASES_URL = "https://github.com/ssbg04/TIS_RMS/releases/latest";
+
+    // Known stable assets (v2.0.62) for instant synchronous assignment
+    let currentAssets = {
+      windows: {
+        name: "TIS_RMS_Client_Setup_v2.0.62.exe",
+        url: "https://github.com/ssbg04/TIS_RMS/releases/download/v2.0.62/TIS_RMS_Client_Setup_v2.0.62.exe",
+        size: "38.4 MB"
+      },
+      universal: {
+        name: "TIS_RMS_Universal_v2.0.62.apk",
+        url: "https://github.com/ssbg04/TIS_RMS/releases/download/v2.0.62/TIS_RMS_Universal_v2.0.62.apk",
+        size: "66.9 MB"
+      },
+      arm64: {
+        name: "TIS_RMS_64_v2.0.62.apk",
+        url: "https://github.com/ssbg04/TIS_RMS/releases/download/v2.0.62/TIS_RMS_64_v2.0.62.apk",
+        size: "25.8 MB"
+      },
+      armeabi: {
+        name: "TIS_RMS_32bit_v2.0.62.apk",
+        url: "https://github.com/ssbg04/TIS_RMS/releases/download/v2.0.62/TIS_RMS_32bit_v2.0.62.apk",
+        size: "23.6 MB"
+      }
+    };
+
+    const btn           = document.getElementById("hero-download-btn") as HTMLAnchorElement | null;
+    const label         = document.getElementById("hero-download-label");
+    const iconContainer = document.getElementById("hero-download-icon");
+    const cantInstall   = document.getElementById("cant-install-hint") as HTMLButtonElement | null;
+
+    // Modal elements
+    const backdrop       = document.getElementById("apk-modal-backdrop") as HTMLElement | null;
+    const modalClose     = document.getElementById("apk-modal-close");
+    const universalLink  = document.getElementById("modal-universal-link") as HTMLAnchorElement | null;
+    const arm64Link      = document.getElementById("modal-arm64-link") as HTMLAnchorElement | null;
+    const armeabiLink    = document.getElementById("modal-armeabi-link") as HTMLAnchorElement | null;
+    const universalSize  = document.getElementById("modal-universal-size");
+    const arm64Size      = document.getElementById("modal-arm64-size");
+    const armeabiSize    = document.getElementById("modal-armeabi-size");
+    const arm64Badge     = document.getElementById("modal-arm64-badge");
+    const armeabiBadge   = document.getElementById("modal-armeabi-badge");
+
+    const windowsIconSvg = `<svg class="hero-dl-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 4.2 10.8 3v8.1H2V4.2Zm10-1.35L22 1.5v9.6H12v-8.25ZM2 12.8h8.8v8.1L2 19.65v-6.85Zm10 0h10v9.7l-10-1.4v-8.3Z"/></svg>`;
+    const androidIconSvg = `<svg class="hero-dl-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.18 9.6a.72.72 0 1 0 0 1.44.72.72 0 0 0 0-1.44Zm11.64 0a.72.72 0 1 0 0 1.44.72.72 0 0 0 0-1.44ZM15.66 3.3l1.2-2.08a.3.3 0 0 0-.52-.3l-1.22 2.12A7.44 7.44 0 0 0 12 2.4a7.44 7.44 0 0 0-3.12.64L7.66.92a.3.3 0 0 0-.52.3l1.2 2.08A6.72 6.72 0 0 0 5.28 8.4h13.44A6.72 6.72 0 0 0 15.66 3.3ZM5.28 9.6v7.08a1.44 1.44 0 0 0 1.44 1.44h.72V21a1.2 1.2 0 0 0 2.4 0v-2.88h4.32V21a1.2 1.2 0 0 0 2.4 0v-2.88h.72a1.44 1.44 0 0 0 1.44-1.44V9.6H5.28ZM3 9.6a1.2 1.2 0 0 0-1.2 1.2v4.8a1.2 1.2 0 0 0 2.4 0V10.8A1.2 1.2 0 0 0 3 9.6Zm18 0a1.2 1.2 0 0 0-1.2 1.2v4.8a1.2 1.2 0 0 0 2.4 0V10.8A1.2 1.2 0 0 0 21 9.6Z"/></svg>`;
+
+    // ── Platform & Architecture Detection ────────────────────────────────────
+    function detectPlatformAndArch(): {
+      platform: "windows" | "android" | "other";
+      arch: "64" | "32";
+      archLabel: "64-bit" | "32-bit";
+    } {
+      const ua = navigator.userAgent || "";
+      const nav = navigator as any;
+      const platformStr = (nav.userAgentData?.platform || navigator.platform || ua).toLowerCase();
+
+      const isAndroid = /android/i.test(ua) || platformStr.includes("android");
+      const isWindows = /windows|win32|win64/i.test(ua) || platformStr.includes("win");
+
+      if (isWindows) {
+        const is64 = /x64|x86_64|win64|wow64/i.test(ua) || (nav.userAgentData?.bitness === "64");
+        return {
+          platform: "windows",
+          arch: is64 ? "64" : "32",
+          archLabel: is64 ? "64-bit" : "32-bit"
+        };
+      }
+
+      if (isAndroid) {
+        // Look for 32-bit markers (armv7, armeabi). Modern Android devices since 2017 are overwhelmingly 64-bit ARM64.
+        const is32 = /armv7|armeabi/i.test(ua);
+        return {
+          platform: "android",
+          arch: is32 ? "32" : "64",
+          archLabel: is32 ? "32-bit" : "64-bit"
+        };
+      }
+
+      return {
+        platform: "other",
+        arch: "64",
+        archLabel: "64-bit"
+      };
+    }
+
+    // ── Apply direct download to Hero CTA ────────────────────────────────────
+    function applyHeroDownload(info: ReturnType<typeof detectPlatformAndArch>) {
+      if (!btn) return;
+
+      if (info.platform === "windows") {
+        btn.href = currentAssets.windows.url;
+        btn.setAttribute("download", currentAssets.windows.name);
+        btn.setAttribute("target", "_blank");
+        btn.setAttribute("rel", "noopener noreferrer");
+        if (label) label.textContent = `Download for Windows (${info.archLabel})`;
+        btn.setAttribute("aria-label", `Download TIS RMS for Windows ${info.archLabel}`);
+        if (iconContainer) iconContainer.innerHTML = windowsIconSvg;
+        if (cantInstall) cantInstall.hidden = true;
+      } else if (info.platform === "android") {
+        const chosen = info.arch === "32" ? currentAssets.armeabi : currentAssets.arm64;
+        btn.href = chosen.url;
+        btn.setAttribute("download", chosen.name);
+        btn.setAttribute("target", "_blank");
+        btn.setAttribute("rel", "noopener noreferrer");
+        if (label) label.textContent = `Download for Android (${info.archLabel})`;
+        btn.setAttribute("aria-label", `Download TIS RMS for Android ${info.archLabel}`);
+        if (iconContainer) iconContainer.innerHTML = androidIconSvg;
+        if (cantInstall) cantInstall.hidden = false;
+      } else {
+        btn.href = "#downloads";
+        btn.removeAttribute("download");
+        btn.removeAttribute("target");
+        btn.removeAttribute("rel");
+        if (label) label.textContent = "View All Downloads";
+        btn.setAttribute("aria-label", "View All Downloads");
+        if (cantInstall) cantInstall.hidden = true;
+      }
+
+      // Update modal badges
+      if (arm64Badge) arm64Badge.textContent = (info.platform === "android" && info.arch === "64") ? "Your device" : "";
+      if (armeabiBadge) armeabiBadge.textContent = (info.platform === "android" && info.arch === "32") ? "Your device" : "";
+      arm64Link?.classList.toggle("apk-option-detected", info.platform === "android" && info.arch === "64");
+      armeabiLink?.classList.toggle("apk-option-detected", info.platform === "android" && info.arch === "32");
+    }
+
+    // ── Update Modal Download Links ──────────────────────────────────────────
+    function updateModalUI() {
+      if (universalLink) {
+        universalLink.href = currentAssets.universal.url;
+        universalLink.setAttribute("download", currentAssets.universal.name);
+      }
+      if (arm64Link) {
+        arm64Link.href = currentAssets.arm64.url;
+        arm64Link.setAttribute("download", currentAssets.arm64.name);
+      }
+      if (armeabiLink) {
+        armeabiLink.href = currentAssets.armeabi.url;
+        armeabiLink.setAttribute("download", currentAssets.armeabi.name);
+      }
+      if (universalSize) universalSize.textContent = currentAssets.universal.size;
+      if (arm64Size) arm64Size.textContent = currentAssets.arm64.size;
+      if (armeabiSize) armeabiSize.textContent = currentAssets.armeabi.size;
+    }
+
+    // ── Modal open / close ──────────────────────────────────────────────────
+    function openModal() {
+      if (!backdrop) return;
+      backdrop.hidden = false;
+      backdrop.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+      modalClose?.focus();
+    }
+
+    function closeModal() {
+      if (!backdrop) return;
+      backdrop.classList.remove("is-open");
+      backdrop.hidden = true;
+      document.body.style.overflow = "";
+      cantInstall?.focus();
+    }
+
+    modalClose?.addEventListener("click", closeModal);
+    backdrop?.addEventListener("click", (e) => {
+      if (e.target === backdrop) closeModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && backdrop && !backdrop.hidden) closeModal();
+    });
+
+    cantInstall?.addEventListener("click", openModal);
+
+    // Click safeguard: if clicked before full async init, download directly instead of navigating to #downloads
+    btn?.addEventListener("click", (e) => {
+      const href = btn.getAttribute("href") || "";
+      if (href === "#downloads" || href.startsWith("#")) {
+        const cur = detectPlatformAndArch();
+        if (cur.platform === "windows") {
+          e.preventDefault();
+          window.location.href = currentAssets.windows.url;
+        } else if (cur.platform === "android") {
+          e.preventDefault();
+          const chosen = cur.arch === "32" ? currentAssets.armeabi : currentAssets.arm64;
+          window.location.href = chosen.url;
+        }
+      }
+    });
+
+    // ── 1. Run Synchronously Now (Zero Delay) ────────────────────────────────
+    let detected = detectPlatformAndArch();
+    applyHeroDownload(detected);
+    updateModalUI();
+
+    // ── 2. Refine Architecture Asynchronously with User-Agent Client Hints ──
+    const nav = navigator as any;
+    if (nav.userAgentData?.getHighEntropyValues) {
+      nav.userAgentData.getHighEntropyValues(["architecture", "bitness"]).then((hints: any) => {
+        const archStr = String(hints.architecture || "").toLowerCase();
+        const bitsStr = String(hints.bitness || "");
+        let changed = false;
+
+        if (detected.platform === "android") {
+          if (bitsStr === "32" || (archStr.includes("arm") && bitsStr === "32")) {
+            if (detected.arch !== "32") {
+              detected.arch = "32";
+              detected.archLabel = "32-bit";
+              changed = true;
+            }
+          }
+        } else if (detected.platform === "windows") {
+          if (bitsStr === "32") {
+            if (detected.arch !== "32") {
+              detected.arch = "32";
+              detected.archLabel = "32-bit";
+              changed = true;
+            }
+          }
+        }
+
+        if (changed) {
+          applyHeroDownload(detected);
+        }
+      }).catch(() => {});
+    }
+
+    // ── 3. Check GitHub Releases in Background for Newer Versions ───────────
+    function formatSize(bytes: number) {
+      return bytes ? `${(bytes / (1024 * 1024)).toFixed(1)} MB` : "";
+    }
+
+    async function checkLatestReleases() {
+      try {
+        let release: any;
+        const cached = sessionStorage.getItem(CACHE_KEY);
+        if (cached) {
+          release = JSON.parse(cached);
+        } else {
+          const res = await fetch(RELEASES_API, {
+            headers: { Accept: "application/vnd.github+json" },
+          });
+          if (!res.ok) return;
+          release = await res.json();
+          sessionStorage.setItem(CACHE_KEY, JSON.stringify(release));
+        }
+
+        const assets: any[] = release?.assets || [];
+        const winAsset = assets.find((a) => /\.exe$/i.test(a.name));
+        const uniAsset = assets.find((a) => /universal.*\.apk$/i.test(a.name));
+        const a64Asset = assets.find((a) => /(?:64|arm64|arm_64).*\.apk$/i.test(a.name) && !/universal/i.test(a.name));
+        const a32Asset = assets.find((a) => /(?:32|v7a|armeabi).*\.apk$/i.test(a.name) && !/universal/i.test(a.name));
+
+        if (winAsset) {
+          currentAssets.windows = {
+            name: winAsset.name,
+            url: winAsset.browser_download_url,
+            size: formatSize(winAsset.size)
+          };
+        }
+        if (uniAsset) {
+          currentAssets.universal = {
+            name: uniAsset.name,
+            url: uniAsset.browser_download_url,
+            size: formatSize(uniAsset.size)
+          };
+        }
+        if (a64Asset) {
+          currentAssets.arm64 = {
+            name: a64Asset.name,
+            url: a64Asset.browser_download_url,
+            size: formatSize(a64Asset.size)
+          };
+        }
+        if (a32Asset) {
+          currentAssets.armeabi = {
+            name: a32Asset.name,
+            url: a32Asset.browser_download_url,
+            size: formatSize(a32Asset.size)
+          };
+        }
+
+        applyHeroDownload(detected);
+        updateModalUI();
+      } catch {
+        // Fallback already assigned synchronously!
+      }
+    }
+
+    checkLatestReleases();
+  })();
+
+  // ── Interactive Module Showcase Tabs ──────────────────────────────────────
   const pills = document.querySelectorAll<HTMLButtonElement>(".module-pill");
   const previewText = document.getElementById("module-preview-text");
 
@@ -84,7 +608,11 @@
       pill.classList.add("active");
       pill.setAttribute("aria-selected", "true");
       if (previewText) {
-        previewText.textContent = pill.dataset.text || "";
+        previewText.style.opacity = "0";
+        setTimeout(() => {
+          previewText.textContent = pill.dataset.text || "";
+          previewText.style.opacity = "1";
+        }, 120);
       }
     });
   });
